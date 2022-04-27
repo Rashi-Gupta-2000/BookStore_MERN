@@ -28,7 +28,7 @@ PAGES
 - after signin -> home page -> (books listing)
 
 - home page
-    - navbar -> home button, logout button, search button, filter book button, readlist button
+    - navbar -> home button, logout button, search button, filter book button, readlist button, delete user
 
 - card of each book 
     - cover page image of book 

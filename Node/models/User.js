@@ -4,11 +4,13 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
 const UserSchema = new Schema({
-    fullname: String,
+    user_name: String,
     email: String,
-    gender: String,
-    phone: String, 
-    isDel: {
+    type: String,  // user and admin
+    wishlist: [{
+        type:String // wishlist
+    }],
+    isDel: { 
         type: Boolean,
         default: false
     },
@@ -19,12 +21,11 @@ const UserSchema = new Schema({
 UserSchema.methods.generateToken = function(){
     return jwt.sign({
         _id: this._id,
-        fullname: this.fullname,
+        user_name: this.user_name,
         email: this.email
     }, "ABCD")
 }
  
-
 
 UserSchema.methods.setPassword = function(password){
     this.salt = crypto.randomBytes(16).toString("hex");

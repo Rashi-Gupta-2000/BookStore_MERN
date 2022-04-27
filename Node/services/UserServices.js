@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const { obj } = require("../models/User");
+// const { obj } = require("../models/User");
 const UserSchema = require("../models/User");
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema); // in mongo 'users'
 
 class UserService {
 
-
+    // called when signing up
     async setUser(user){
 
         if(user["_id"] !== undefined) {
@@ -22,16 +22,18 @@ class UserService {
 
     }
 
-    async getUser(){
-        return await User.find({isDel: false}).select(["-salt", "-hash"])
-    }
+    
+    // async getUser(){
+    //     return await User.find({isDel: false}).select(["-salt", "-hash"])
+    // }
 
+    
     async removeUser(_id){
         return await User.updateOne({"_id":_id}, {$set:{ isDel: true }})
     }
 
 
-    
+    // called when signing in
     async loginUser(email, password){
         const result = await User.find({"email":email});
         if(result){
