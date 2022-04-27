@@ -36,3 +36,9 @@ PAGES
     - readme button -> ridirect to a dynamic url different for every book, back button
     - Add to readlist button -> redirect to wishlist page -> list of the books added to the readlist
 
+Day#1 --> 27 April
+created Schema for book and user 
+UserService created -> signup, signin,remove user -> routes created 
+authentication provided by jwt authorization 
+BookService created -> list, add, delete -> routes 
+Wishlist routes and services added
