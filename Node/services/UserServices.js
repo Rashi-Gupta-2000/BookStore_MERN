@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 // const { obj } = require("../models/User");
 const UserSchema = require("../models/User");
 const User = mongoose.model("User", UserSchema); // in mongo 'users'
+const BookService = require("./BookServices")
 
 class UserService {
 
@@ -30,6 +31,13 @@ class UserService {
     
     async removeUser(_id){
         return await User.updateOne({"_id":_id}, {$set:{ isDel: true }})
+    }
+
+    async addtowishlist(_id,_bookid){
+        const bookService = new BookService();
+        const result = await bookService.getBookById(_bookid);
+        console.log(result);
+        return await User.findOneAndUpdate({"_id":_id}, {$push:{ "wishlist" : result.title }})
     }
 
 

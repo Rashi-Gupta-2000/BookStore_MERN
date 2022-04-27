@@ -42,5 +42,11 @@ router.delete("/:id",auth.required, async (req,res)=>{
     res.send(result)
 })
 
+router.post("/:id/:bookid",auth.required, async (req,res)=>{
+    const userService = new UserService();
+    const result = await userService.addtowishlist(req.params.id,req.params.bookid);
+    res.send(result)
+})
+
 
 module.exports = router;

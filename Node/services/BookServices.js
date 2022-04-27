@@ -24,6 +24,10 @@ class BookService {
         return await Book.find({isDel: false});
     }
 
+    async getBookById(_id){  
+        return await Book.findOne({ $and: [{ isDel: false }, { "_id": _id }] })      
+       
+    }
     
     async removeBook(_id){
         return await Book.updateOne({"_id":_id}, {$set:{ isDel: true }})
