@@ -6,7 +6,10 @@ const BookSchema = new Schema({
     title: String,
     author: String,
     category: String,
-    likes_count: Number,
+    likes_count: {
+        type:Number,
+        default:0
+    },
     summary:String,
     content:String,
 
