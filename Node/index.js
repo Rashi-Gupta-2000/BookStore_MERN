@@ -7,7 +7,7 @@ const helmet = require("helmet");
 
 // middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
 app.use(cors());
 
@@ -15,16 +15,16 @@ app.use(cors());
 
 app.use("/user", require("./routes/user"));
 
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
     res.send("Welcome to the Bookstore Project")
 })
 
-app.listen(3500, (e)=>{
+app.listen(4500, (e) => {
     console.log("Bookstore app listening on port 3500......")
 
-    mongoose.connect("mongodb://localhost/bookstore").then((result)=>{
+    mongoose.connect("mongodb://localhost/bookstore").then((result) => {
         console.log("Database Connected")
-    }).catch((e)=>{
+    }).catch((e) => {
         console.log("Database connection failed")
         console.log(e)
     })
