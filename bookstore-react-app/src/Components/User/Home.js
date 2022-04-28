@@ -12,7 +12,7 @@ const headers = {
 
 const Home = () => {
     const params = "";
-    const [products, setProducts] = useState([]);
+    const [books, setBooks] = useState([]);
     const navigate = useNavigate();
     
     // const bookserviceobj = new BookService();
@@ -37,12 +37,17 @@ const Home = () => {
         // e.preventDefault();
         return axios.get(USER_BASE_URL , { headers: headers }).then((res)=>{
             console.log(res);
-            setProducts(res.data);
+            setBooks(res.data);
         })
         .catch((err)=>{
             console.log(err);
         });
     }
+
+    // const wishlistHandler = (id) => {
+    //     localStorage.setItem("id",id)
+        
+    // }
 
     const contentHandler =(id) =>{
         //event.preventDefault();
@@ -69,12 +74,12 @@ const Home = () => {
             <div className="container-fluid">
                 <Link to="/home">Home Page</Link>
                 <ul className="navbar-nav mr-auto">
-                    <li className="navbar-item">
-                        <Link to="/list" className="nav-link"> Wishlist</Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link to={`/edit/${params}`} className="nav-link"> LoOgOut</Link>
-                    </li>
+                    {/* <li className="navbar-item">
+                        <Link to="/wishlist/:id" className="nav-link"> Wishlist</Link>
+                    </li> */}
+                    {/* <li className="navbar-item">
+                        <Link to={`/edit/${params}`} className="nav-link"> Logout</Link>
+                    </li> */}
 
                 </ul>
             </div>
@@ -82,18 +87,19 @@ const Home = () => {
 
             
                 <div>
-                    <h1>Products</h1>
+                    <h1>Books</h1>
                 </div>
 
                 <div>
-                    <h1>Featured Products</h1>
+                    <h1>Featured Books</h1>
                     <div className='item-container'>
-                        {products.map((product) => (
+                        {books.map((book) => (
                         <div className='card'>
-                            <h3>{product.title}</h3>
-                            <h3>{product.author}</h3>
-                            <p>{product.summary}</p>
-                            <button onClick={() => contentHandler(product._id)}>Read Me</button>
+                            <h3>{book.title}</h3>
+                            <h3>{book.author}</h3>
+                            <p>{book.summary}</p>
+                            <button onClick={() => contentHandler(book._id)}>Read Me</button>
+                            {/* <button onClick={() => wishlistHandler(book._id)}>Add to ReadList</button> */}
                         </div>
                     ))}
                     </div>

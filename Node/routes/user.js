@@ -10,12 +10,6 @@ router.get("/", (req,res)=>{
 })
  
 
-// router.get("/", auth.required, async (req,res)=>{
-//     const userService = new UserService();
-//     const result = await userService.getUser();
-//     res.send(result);
-// })
-
 // sign up page
 router.post("/signup", async (req,res)=>{
     const userService = new UserService();
@@ -29,22 +23,6 @@ router.post("/login", async (req,res)=>{
     const result = await userService.loginUser(req.body.email, req.body.password);
     res.send(result)
 })
-
-// const getTokenFromHeaders = req => {
-// 	const {
-// 		headers: { authorization }
-// 	} = req;
-
-// 	if (authorization && authorization.split(" ")[0] === "Token") {
-//         authorization.split(" ")[1] = "123";
-//         console.log(authorization.split(" ")[1])
-//         console.log("IN the fun")
-//         console.log(authorization)
-//         console.log("hi")
-//         return authorization.split(" ")[1];
-// 	}
-// 	return null;
-// };
 
 
 // router.post('/logout', auth.required, async(req, res) => {
@@ -84,5 +62,16 @@ router.post("/:id/:bookid",auth.required, async (req,res)=>{
     res.send(result)
 })
 
+router.get("/wishlist/:id",auth.required, async(req,res) =>{
+    const userService = new UserService();
+    const result = await userService.getwishlist(req.params.id);
+    res.send(result["wishlist"]);
+})
+
+router.delete("/wishlist/:id/:wid",auth.required, async(req,res) =>{
+    const userService = new UserService();
+    const result = await userService.deletetowishlist(req.params.id,req.params.wid);
+    res.send(result);
+})
 
 module.exports = router;

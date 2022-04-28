@@ -69,3 +69,7 @@ Components
         - card (home format)
         - navbar (home)
     
+DAY#2 --> Issues
+
+home(refresh book)
+after back button no books listing

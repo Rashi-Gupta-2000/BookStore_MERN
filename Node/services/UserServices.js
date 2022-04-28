@@ -63,7 +63,19 @@ class UserService {
         }
     }
 
+    // db.getCollection('users').update({},{$pull:{"wishlist": "title"}})
+    async deletetowishlist(_id,_wid){
+        const bookService = new BookService();
+        const userobj = await User.findOne({ $and: [{ isDel: false }, { "_id": _id }] })  
+        console.log(userobj.wishlist[_wid]);
+        // console.log(wishlist[_wid])
+        // return awsi
+        return await User.updateOne({},{$pull:{"wishlist": userobj.wishlist[_wid]}})
+    }
     
+    async getwishlist(_id){
+        return await User.findOne({ $and: [{ isDel: false }, { "_id": _id }] })  
+    }
 
 }
 
