@@ -28,7 +28,8 @@ PAGES
 - after signin -> home page -> (books listing)
 
 - home page
-    - navbar -> home button, logout button, search button, filter book button, readlist button, delete account
+    - navbar -> home button, logout button, readlist button, delete account
+        <!-- search button, filter book button, -->
 
 - card of each book 
     - cover page image of book 
@@ -42,3 +43,11 @@ UserService created -> signup, signin,remove user -> routes created
 authentication provided by jwt authorization 
 BookService created -> list, add, delete -> routes 
 Wishlist routes and services added
+
+Day#2 --> 28 April
+Welcome page -> image, buttons signup/signin (navbar)
+Signup -> Signin page 
+Home page Navbar, book listing(card)
+
+LOGOUT ISSUE SOLVED:
+After signup we do not get a token we generate a token after signin so for signout we will delete the token and generate a new token after every signin.
