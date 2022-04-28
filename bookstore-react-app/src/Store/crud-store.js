@@ -9,58 +9,108 @@ const initialState = {
     useremail: "",
     userpassword: "",
     userphone: "",
-    usergender: "Male"
+    usergender: "Male",
+    books:{},
+    wishlist:[],
+    title: "",
+    author: "",
+    category: "",
+    likes_count: 0,
+    summary: "",
+    content: "",
 };
-const crudReducer = (state = initialState, action) => {
+const bookReducer = (state = initialState, action) => {
     if (action.type === "email")
+    return {
+        ...state,
+        email: action.value,
+    }
+if (action.type === "password")
+    return {
+        ...state,
+        password: action.value,
+    }
+if (action.type === "logged")
+    return {
+        ...state,
+        isLogged: action.value,
+    };
+if (action.type === "users")
+    return {
+        ...state,
+        users: action.value,
+    };
+    if (action.type === "books")
+    return {
+        ...state,
+        books: action.value,
+    };
+if (action.type === "wishlist")
+    return {
+        ...state,
+        wishlist: action.value,
+    };
+if (action.type === "fullname")
+    return {
+        ...state,
+        fullname: action.value,
+    };
+
+if (action.type === "useremail")
+    return {
+        ...state,
+        useremail: action.value,
+    };
+if (action.type === "userpassword")
+    return {
+        ...state,
+        userpassword: action.value,
+    };
+if (action.type === "userphone")
+    return {
+        ...state,
+        userphone: action.value,
+    };
+if (action.type === "usergender")
+    return {
+        ...state,
+        usergender: action.value,
+    };
+
+    if (action.type === "title")
         return {
             ...state,
-            email: action.value,
+            title: action.value,
         }
-    if (action.type === "password")
+    if (action.type === "author")
         return {
             ...state,
-            password: action.value,
+            author: action.value,
         }
-    if (action.type === "logged")
+    if (action.type === "category")
         return {
             ...state,
-            isLogged: action.value,
+            category: action.value,
         };
-    if (action.type === "users")
+    if (action.type === "likes_count")
         return {
             ...state,
-            users: action.value,
+            likes_count: action.value,
         };
-    if (action.type === "fullname")
+    if (action.type === "summary")
         return {
             ...state,
-            fullname: action.value,
+            summary: action.value,
         };
 
-    if (action.type === "useremail")
+    if (action.type === "content")
         return {
             ...state,
-            useremail: action.value,
-        };
-    if (action.type === "userpassword")
-        return {
-            ...state,
-            userpassword: action.value,
-        };
-    if (action.type === "userphone")
-        return {
-            ...state,
-            userphone: action.value,
-        };
-    if (action.type === "usergender")
-        return {
-            ...state,
-            usergender: action.value,
+            content: action.value,
         };
     return state;
 };
 
-const crudStore = createStore(crudReducer);
+const bookStore = createStore(bookReducer);
 
-export default crudStore;
+export default bookStore;

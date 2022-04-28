@@ -2,17 +2,20 @@ import { useDispatch, useSelector } from "react-redux";
 import UserService from "../../Services/UserService";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react"
+
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { email, password, isLogged } = useSelector((state) => state);
+    
     useEffect(() => {
         const localData = localStorage.getItem("token");
         if (localData) {
-            navigate("/list");
+            navigate("/home");
         }
     }, [])
-    //console.log(isLogged)
+    
+    console.log(isLogged)
     const emailChangeHandler = (event) => {
         dispatch({ type: "email", value: event.target.value });
     }
@@ -26,7 +29,7 @@ const Login = () => {
             if (res.data !== "") {
                 localStorage.setItem("token", res.data.token)
                 dispatch({ type: "logged", value: true });
-                navigate("/list")
+                navigate("/home")
             }
             else {
                 dispatch({ type: "logged", value: false });

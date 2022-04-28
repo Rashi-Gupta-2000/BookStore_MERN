@@ -29,7 +29,7 @@ class UserService {
 
     //post user
     postUser(users) {
-        return axios.post(USER_BASE_URL, users, { headers: headers });
+        return axios.post(USER_BASE_URL+"/signup", users, { headers: headers });
     }
 
     //delete user

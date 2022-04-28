@@ -34,7 +34,7 @@ router.delete("/remove/:id",auth.required, async (req,res)=>{
 router.get("/:id/content",auth.required,async(req,res) => {
     const bookService = new BookService();
     const result = await bookService.getBookById(req.params.id);
-    res.send(result["content"])
+    res.send(result)
 })
 
 module.exports = router;
