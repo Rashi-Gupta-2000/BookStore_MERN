@@ -9,7 +9,8 @@ const initialState = {
     useremail: "",
     userpassword: "",
     userphone: "",
-    usergender: "Male"
+    usergender: "Male",
+    wishlist:[],
 };
 const crudReducer = (state = initialState, action) => {
     if (action.type === "email")
@@ -31,6 +32,11 @@ const crudReducer = (state = initialState, action) => {
         return {
             ...state,
             users: action.value,
+        };
+    if (action.type === "wishlist")
+        return {
+            ...state,
+            wishlist: action.value,
         };
     if (action.type === "fullname")
         return {
