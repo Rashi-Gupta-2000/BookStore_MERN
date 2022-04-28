@@ -51,3 +51,21 @@ Home page Navbar, book listing(card)
 
 LOGOUT ISSUE SOLVED:
 After signup we do not get a token we generate a token after signin so for signout we will delete the token and generate a new token after every signin.
+
+FRONTEND ==> REACT
+Components 
+    - Welcome 
+        - navbar (signin,signup,pic button)
+    - Signup
+        - navbar(welcome -> signin,pic button)
+    - Signin
+        - navbar(welcome -> signup,pic button)
+    - Home (call the subcomponents)
+        - navbar
+        - card
+    - Content
+        - navbar (home)
+    - readlist
+        - card (home format)
+        - navbar (home)
+    
