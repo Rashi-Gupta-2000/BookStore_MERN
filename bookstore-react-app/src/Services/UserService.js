@@ -1,5 +1,5 @@
 import axios from "axios"
-const USER_BASE_URL = "http://localhost:3000/user"
+const USER_BASE_URL = "http://localhost:4500/user"
 const headers = {
     "Content-Type": "application/json",
     Authorization: "Token " + localStorage.getItem("token")
