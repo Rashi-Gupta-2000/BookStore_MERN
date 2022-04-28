@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UserService from "../../Services/UserService";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react"
+import Navbar from "../Welcome/Navbar";
 
 const SignUp = () => {
     const dispatch = useDispatch();
@@ -45,6 +46,8 @@ const SignUp = () => {
         // });
     };
     return (
+        <div>
+            <Navbar/>
         <div className="container mt-3">
             {/* {isLogged === false ? ( */}
                 <form onSubmit={signupHandler}>
@@ -89,6 +92,7 @@ const SignUp = () => {
                 {/* ): ("")}  */}
             
         </div>
+    </div>
     )
 }
 

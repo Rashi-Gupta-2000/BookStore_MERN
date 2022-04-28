@@ -2,6 +2,9 @@ import BookService from "../../Services/BookService"
 import "./Content.css"
 import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
+import NavbarHome from "../User/NavbarHome";
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 // import { useParams } from "react-router-dom";
 
 const Content = () => {
@@ -70,10 +73,25 @@ const Content = () => {
     // console.log(bookData.title)
 
     return(
-        <div className="container m-2">
-            <div className="title">{books.title}</div>
-            <div className="author">{books.author}</div>
-            <div className="details">{books.content}</div>
+        <div>
+            <NavbarHome/>
+            <div className="container m-2">
+            <Card style={{width:'25rem'}}>
+                             <Card.Img variant="top" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg" />
+                             <Card.Body style={{height:'30rem'}}>
+                                 <Card.Title>{books.title}</Card.Title>
+                                 <Card.Text>
+                                 {books.author}
+                                 </Card.Text>
+                                 <Card.Text>
+                                 {books.content}
+                                 </Card.Text>
+                             </Card.Body>
+                             </Card>
+                {/* <div className="title">{books.title}</div>
+                <div className="author">{books.author}</div>
+                <div className="details">{books.content}</div> */}
+            </div>
         </div>
     );
 };

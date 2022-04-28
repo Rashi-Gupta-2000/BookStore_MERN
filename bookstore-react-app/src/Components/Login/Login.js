@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UserService from "../../Services/UserService";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react"
+import Navbar from "../Welcome/Navbar"
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -37,6 +38,8 @@ const Login = () => {
         });
     };
     return (
+        <div>
+            <Navbar/>
         <div className="container mt-3">
             {isLogged === false ? (
                 <div className="alert alert-danger">
@@ -44,7 +47,7 @@ const Login = () => {
                 </div>)
                 : ("")}
             <form onSubmit={loginHandler}>
-                <div className="mb-3 mt-3">
+                <div className="mb-3 mt-3 form-group">
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -56,7 +59,7 @@ const Login = () => {
                     />
                 </div>
 
-                <div className="mb-3 mt-3">
+                <div className="mb-3 mt-3 form-group">
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
@@ -68,10 +71,11 @@ const Login = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary"> Login</button>
+                <button type="submit" className="btn btn-dark btn-lg btn-block"> Login</button>
 
             </form>
         </div>
+    </div>
     )
 }
 

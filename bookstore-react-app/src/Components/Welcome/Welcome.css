@@ -1,14 +1,23 @@
-* {
+*{
     margin: 0 auto;
 }
 
 .bg {
+    /* background-image: url('https://static01.nyt.com/images/2017/05/11/t-magazine/bookstore-slide-2MCD/bookstore-slide-2MCD-superJumbo.jpg');*/
+    /* background-repeat:no-repeat; 
+    background-position:center;
+    background-size: cover;*/
     background-image: url('https://static01.nyt.com/images/2017/05/11/t-magazine/bookstore-slide-2MCD/bookstore-slide-2MCD-superJumbo.jpg');
-    height: 880px;
+    background-repeat:no-repeat; 
+    background-position:center;
+    background-size: cover;
+    height: 610px; 
+    /* height: 880px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center center; */
 }
+
 
 .bg .container_ {
     display: flex;

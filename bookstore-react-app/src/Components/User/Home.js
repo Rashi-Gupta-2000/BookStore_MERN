@@ -1,6 +1,10 @@
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import React, { useState, useEffect } from 'react';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import "./Home.css"
+import NavbarHome from "./NavbarHome";
 //import Card from "./Card/card";
 import BookService from "../../Services/BookService";
 const USER_BASE_URL = "http://localhost:4500/book";
@@ -68,50 +72,39 @@ const Home = () => {
     
 
     return (
-        <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-
-            <div className="container-fluid">
-                <Link to="/home">Home Page</Link>
-                <ul className="navbar-nav mr-auto">
-                    {/* <li className="navbar-item">
-                        <Link to="/wishlist/:id" className="nav-link"> Wishlist</Link>
-                    </li> */}
-                    {/* <li className="navbar-item">
-                        <Link to={`/edit/${params}`} className="nav-link"> Logout</Link>
-                    </li> */}
-
-                </ul>
-            </div>
-        </nav>
-
-            
-                <div>
-                    <h1>Books</h1>
-                </div>
-
+        <div className="full">
+            <NavbarHome/>
                 <div>
                     <h1>Featured Books</h1>
-                    <div className='item-container'>
+                    <div className='item-container card-grid'>
                         {books.map((book) => (
-                        <div className='card'>
-                            <h3>{book.title}</h3>
-                            <h3>{book.author}</h3>
-                            <p>{book.summary}</p>
-                            <button onClick={() => contentHandler(book._id)}>Read Me</button>
-                            {/* <button onClick={() => wishlistHandler(book._id)}>Add to ReadList</button> */}
-                        </div>
+                             <Card style={{ width: '18rem' }} >
+                             <Card.Img variant="top" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg" />
+                             <Card.Body>
+                                 <Card.Title>{book.title}</Card.Title>
+                                 <Card.Text>
+                                 {book.author}
+                                 </Card.Text>
+                                 <Card.Text>
+                                 {book.summary}
+                                 </Card.Text>
+                                 <Button variant="primary" onClick={() => contentHandler(book._id)}>
+                                    Read Me
+                                 </Button>
+                             </Card.Body>
+                             </Card>
+                        // <div className='card'>
+                        //     <h3>{book.title}</h3>
+                        //     <h3>{book.author}</h3>
+                        //     <p>{book.summary}</p>
+                        //     <button onClick={() => contentHandler(book._id)}>Read Me</button>
+                        //     {/* <button onClick={() => wishlistHandler(book._id)}>Add to ReadList</button> */}
+                        // </div>
                     ))}
+
                     </div>
                 </div>
-
-                
-
-        
         </div>
-
-        
-
     )
 }
 
