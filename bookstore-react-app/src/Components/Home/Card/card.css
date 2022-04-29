@@ -1,0 +1,40 @@
+.product-card{
+    background-color: rgb(221, 197, 167) !important;
+    width: 15.7% !important;
+    margin:15px !important;
+    height: 22%;
+}
+.cardimage{
+    width: 50%;
+    height: 60%;
+    padding: 10px;
+}
+.product-card-content{
+    padding:12px;
+}
+.content-header{
+    font-weight: bold;
+}
+.content-subheading{
+    font-size: 10px;
+    color:black;
+}
+.book-price{
+    font-size: 20px;
+    color: black;
+}
+
+.addbag_button{
+    background-color: rgb(219, 97, 97);
+    border:1px solid black;
+    padding: .5px;
+    width:110%;
+    color:rgb(0, 0, 0);
+}
+.whishlist_button{
+    background-color: rgb(255, 255, 255);
+    border:1px solid black;
+    padding: .5px;
+    width:110%;
+    color:black
+}
