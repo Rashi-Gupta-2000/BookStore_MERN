@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use("/user", require("./routes/user"));
 app.use("/book", require("./routes/book"));
-
+app.use("/admin", require("./routes/admin"));
 
 app.get("/", (req, res) => {
     res.send("Welcome to the Bookstore Project")

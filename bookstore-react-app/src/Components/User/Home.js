@@ -28,31 +28,30 @@ const Home = () => {
     //const books= bookserviceobj.getBook();
     //console.log(books)
 
-   // const id = localStorage.getItem("id"); // current user id
+    // const id = localStorage.getItem("id"); // current user id
 
 
-    useEffect(()=>{
+    useEffect(() => {
         getBook();
-    },[]);
+    }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         const localData = localStorage.getItem("token")
         console.log(localData)
-        if(localData == null)
-        {
+        if (localData == null) {
             navigate("/")
         }
     });
 
     const getBook = () => {
         // e.preventDefault();
-        return axios.get(USER_BASE_URL , { headers: headers }).then((res)=>{
-            //console.log(res);
+        return axios.get(USER_BASE_URL, { headers: headers }).then((res) => {
+            console.log(res);
             setBooks(res.data);
         })
-        .catch((err)=>{
-            console.log(err);
-        });
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     const wishlistHandler = (id) => {
@@ -64,12 +63,23 @@ const Home = () => {
         })
     }
 
-    const contentHandler =(id) =>{
+    const contentHandler = (id) => {
         //event.preventDefault();
-        localStorage.setItem("id",id)
-        BookService.getContent(id).then((res) =>{
-            if(res.status == 200){
-                navigate("/book/"+id+"/content")
+        localStorage.setItem("id", id)
+        BookService.getContent(id).then((res) => {
+            if (res.status == 200) {
+                navigate("/book/" + id + "/content")
+            }
+            else {
+                console.log("Couldn't find book")
+            }
+        })
+
+    }
+    const likeHandler = (id) => {
+        BookService.getlikes(id).then((res) => {
+            if (res.status == 200) {
+                getBook()
             }
             else {
                 console.log("Couldn't find book")
@@ -84,13 +94,13 @@ const Home = () => {
 
     return (
         <div className="full">
-            <NavbarHome/>
+            <NavbarHome />
             {/* <NavbarMDB/> */}
                 <div>
                     <h1>Featured Books</h1>
                     <div className='item-container card-grid'>
                         {books.map((book) => (
-                             <Card style={{ width: '18rem' }} >
+                             <Card style={{ width: '20rem' }} >
                              <Card.Img variant="top" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg" />
                              <Card.Body>
                                  <Card.Title>{book.title}</Card.Title>
@@ -102,20 +112,18 @@ const Home = () => {
                                  </Card.Text>
                                  <Button variant="primary" onClick={() => contentHandler(book._id)}>Read Me</Button>
                                  <Button variant="success" onClick={() => wishlistHandler(book._id)}>Add to ReadList</Button>
+                                 <Button variant="warning" onClick={() => likeHandler(book._id)}>
+
+                                    Like Me: {book.likes_count}
+
+                                </Button>
                              </Card.Body>
                              </Card>
-                        // <div className='card'>
-                        //     <h3>{book.title}</h3>
-                        //     <h3>{book.author}</h3>
-                        //     <p>{book.summary}</p>
-                        //     <button onClick={() => contentHandler(book._id)}>Read Me</button>
-                        //     {/* <button onClick={() => wishlistHandler(book._id)}>Add to ReadList</button> */}
-                        // </div>
                     ))}
 
-                    </div>
-                </div>
-        </div>
+                 </div>
+             </div>
+         </div>
     )
 }
 
