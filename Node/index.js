@@ -15,13 +15,13 @@ app.use(cors());
 
 app.use("/user", require("./routes/user"));
 app.use("/book", require("./routes/book"));
-
+app.use("/admin", require("./routes/admin"));
 
 app.get("/", (req, res) => {
     res.send("Welcome to the Bookstore Project")
 })
 
-app.listen(4500, (e) => {
+app.listen(4501, (e) => {
     console.log("Bookstore app listening on port 4500......")
 
     mongoose.connect("mongodb://localhost/bookstore").then((result) => {

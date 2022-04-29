@@ -6,12 +6,12 @@ const Book = mongoose.model("Book", BookSchema); // in mongo 'books'
 class BookService {
 
     // called by admin while adding books
-    async setBook(book){
+    async setBook(book) {
 
-        if(book["_id"] !== undefined) {
-          return await Book.updateOne({ "_id":book["_id"] }, { $set: book })
+        if (book["_id"] !== undefined) {
+            return await Book.updateOne({ "_id": book["_id"] }, { $set: book })
         }
-        else{
+        else {
             const bookObj = new Book(book);
             const result = await bookObj.save();
             return result;
@@ -20,21 +20,22 @@ class BookService {
     }
 
     // called by home page
-    async getBook(){
-        return await Book.find({isDel: false});
+    async getBook() {
+        return await Book.find({ isDel: false });
     }
 
-    async getBookById(_id){  
-        return await Book.findOne({ $and: [{ isDel: false }, { "_id": _id }] })      
-       
+    async getBookById(_id) {
+        return await Book.findOne({ $and: [{ isDel: false }, { "_id": _id }] })
+
     }
-    
-    async removeBook(_id){
-        return await Book.updateOne({"_id":_id}, {$set:{ isDel: true }})
+
+    async removeBook(_id) {
+        return await Book.updateOne({ "_id": _id }, { $set: { isDel: true } })
     }
 
 
-    
+
+
 
 
 }
