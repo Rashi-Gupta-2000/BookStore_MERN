@@ -2,13 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import UserService from "../../Services/UserService";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react"
+import { useState } from "react";
 import Navbar from "../Welcome/Navbar";
+import Dropdown from 'react-bootstrap/Dropdown'
+import "./SignUp.css"
 
 const SignUp = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user_name, email, password,type, isLogged } = useSelector((state) => state);
-    
+    const [typeSignup,setType] = useState("User");
     // useEffect(() => {
     //     const localData = localStorage.getItem("token");
     //     if (localData) {
@@ -45,6 +48,11 @@ const SignUp = () => {
         //     }
         // });
     };
+
+    const typeChangeHandler = (event) => {
+        setType(event.target.value);
+    };
+
     return (
         <div>
             <Navbar/>
@@ -88,13 +96,33 @@ const SignUp = () => {
 
                 {/* <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select SignUp Type
+                    Dropdown button
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">User</a>
-                    <a className="dropdown-item" href="#">Admin</a>
+                    <a className="dropdown-item" href="#">Action</a>
+                    <a className="dropdown-item" href="#">Another action</a>
+                    <a className="dropdown-item" href="#">Something else here</a>
                 </div>
                 </div> */}
+
+                {/* <Dropdown>
+                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                    Select Signup Type
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item href="#" placeholder="User">User</Dropdown.Item>
+                    <Dropdown.Item href="#" value="Admin">Admin</Dropdown.Item>
+                </Dropdown.Menu>
+                </Dropdown> */}
+
+                <div className="todo-control">
+                    <label htmlFor="type">Select Signup Type: </label>
+                    <select onChange={typeChangeHandler} value={typeSignup}>
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block"> Sign Up</button>
 

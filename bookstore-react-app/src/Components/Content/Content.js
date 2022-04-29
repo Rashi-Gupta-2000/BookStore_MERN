@@ -2,6 +2,7 @@ import BookService from "../../Services/BookService"
 // import "./Content.css"
 import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavbarHome from "../User/NavbarHome";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -9,6 +10,7 @@ import Button from 'react-bootstrap/Button'
 
 const Content = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const id = localStorage.getItem("id")
     console.log(id)
     // const bookData ={
@@ -58,6 +60,15 @@ const Content = () => {
     useEffect(() => {
         test();
     },[])
+
+    useEffect(()=>{
+        const localData = localStorage.getItem("token")
+        console.log(localData)
+        if(localData == null)
+        {
+            navigate("/")
+        }
+    });
 
     const {books} = useSelector((state) => state);
     //console.log(books)

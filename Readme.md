@@ -37,14 +37,14 @@ PAGES
     - readme button -> ridirect to a dynamic url different for every book, back button
     - Add to readlist button -> redirect to wishlist page -> list of the books added to the readlist
 
-Day#1 --> 27 April
+Day#1 --> 27 April --> Worked till 5:30 7hrs
 created Schema for book and user 
 UserService created -> signup, signin,remove user -> routes created 
 authentication provided by jwt authorization 
 BookService created -> list, add, delete -> routes 
 Wishlist routes and services added
 
-Day#2 --> 28 April
+Day#2 --> 28 April --> Worked till night approx 10hrs
 Welcome page -> image, buttons signup/signin (navbar)
 Signup -> Signin page 
 Home page Navbar, book listing(card)
@@ -54,22 +54,32 @@ After signup we do not get a token we generate a token after signin so for signo
 
 FRONTEND ==> REACT
 Components 
-    - Welcome 
+    - Welcome      ----> Latika
         - navbar (signin,signup,pic button)
-    - Signup
+    - Signup       ----> Akshi
         - navbar(welcome -> signin,pic button)
-    - Signin
+    - Signin       ----> Akshi
         - navbar(welcome -> signup,pic button)
-    - Home (call the subcomponents)
+    - Home (call the subcomponents)   ----> Riya + Rashi (readme button fuctionality)
         - navbar
         - card
-    - Content
+    - Content      ----> Rashi
         - navbar (home)
-    - readlist
+    - readlist     ----> All tried
         - card (home format)
         - navbar (home)
     
 DAY#2 --> Issues
 
 home(refresh book)
-after back button no books listing == solved
+- after back button no books listing == solved
+jwt malformed
+
+DAY#3 --> 29 April 
+Add css and boostrap (make it presentable)
+Complete the add to wishlist functionality
+Logout service  --> done
+admin Interface 
+    - login 
+    - add book  --> latika
+    - delete book --> 

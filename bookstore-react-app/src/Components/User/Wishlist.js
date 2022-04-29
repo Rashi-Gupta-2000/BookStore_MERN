@@ -2,6 +2,7 @@ import { useEffect ,useState} from "react";
 import UserService from "../../Services/UserService";
 import { Link ,useNavigate} from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
+import NavbarHome from "./NavbarHome";
 const Wishlist = () => {
     // const params="";
     // const [users, setusers] = useState([]);
@@ -20,7 +21,7 @@ const Wishlist = () => {
         // localStorage.setItem("id",id)
         
         
-        const id = localStorage.getItem("id")
+        const id = localStorage.getItem("userid")
     
         console.log(id)
 
@@ -28,6 +29,15 @@ const Wishlist = () => {
         // localStorage.setItem("id",id)
         getUserData(id);
     },[]);
+
+    useEffect(()=>{
+        const localData = localStorage.getItem("token")
+        console.log(localData)
+        if(localData == null)
+        {
+            navigate("/")
+        }
+    });
 
     const {wishlist}=useSelector((state)=>state);
     console.log("Wishlist is here:")
@@ -47,13 +57,15 @@ const Wishlist = () => {
     };
     const deleteWishlistHandler = (wid)=> {
         console.log(wid);
-        const id = localStorage.getItem("id")
+        const id = localStorage.getItem("userid")
         UserService.deleteWishlist(id,wid).then((res)=> {
             getUserData(id);
             console.log("deletewishhandler called")
         });
     };
     return (
+        <div>
+            <NavbarHome/>
         <div className="container">
             <table className="table table-striped">
                 <thead>
@@ -85,6 +97,7 @@ const Wishlist = () => {
             </table>
 
         </div>
+    </div>
     )
 };
 export default Wishlist;

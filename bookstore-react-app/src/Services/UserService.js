@@ -21,6 +21,12 @@ class UserService {
         return axios.post(USER_BASE_URL + "/login", credentials);
 
     }
+
+    //redirect to home page
+    HomeUser(){
+        return axios.post(USER_BASE_URL+"/home",{ headers: headers })
+    }
+
     //getuser
     getUser() {
         //console.log(headers);

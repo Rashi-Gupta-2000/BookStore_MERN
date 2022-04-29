@@ -29,6 +29,7 @@ const Login = () => {
             console.log(res);
             if (res.data !== "") {
                 localStorage.setItem("token", res.data.token)
+                localStorage.setItem("userid",res.data._id)
                 dispatch({ type: "logged", value: true });
                 navigate("/home")
             }

@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import "./Home.css"
 import NavbarHome from "./NavbarHome";
+import NavbarMDB from "./NavbarMDB"
 //import Card from "./Card/card";
 import BookService from "../../Services/BookService";
 const USER_BASE_URL = "http://localhost:4500/book";
@@ -31,11 +32,14 @@ const Home = () => {
         getBook();
     },[]);
 
-    // useEffect(()=>{
-    //     BookService.getBookById(id).then((res) => {
-    //         console.log(id)
-    //     })
-    // },[]);
+    useEffect(()=>{
+        const localData = localStorage.getItem("token")
+        console.log(localData)
+        if(localData == null)
+        {
+            navigate("/")
+        }
+    });
 
     const getBook = () => {
         // e.preventDefault();
@@ -74,6 +78,7 @@ const Home = () => {
     return (
         <div className="full">
             <NavbarHome/>
+            {/* <NavbarMDB/> */}
                 <div>
                     <h1>Featured Books</h1>
                     <div className='item-container card-grid'>

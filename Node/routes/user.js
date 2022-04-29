@@ -44,7 +44,7 @@ router.post("/login", async (req,res)=>{
 
 
 // home page
-router.get("/home", (req,res) =>{
+router.get("/home",auth.required, (req,res) =>{
     res.send("Home page");
 })
 
