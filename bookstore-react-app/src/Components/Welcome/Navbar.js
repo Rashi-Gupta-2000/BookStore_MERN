@@ -16,7 +16,9 @@ const Navbar = () => {
                         {/* <Link to="/login" className="nav-link text-light"> SignIn</Link> */}
                         <button type="button" className="btn btn-light"><a href="/login">SignIn</a></button>
                     </li>
-                    
+                    <li className="navbar-item">
+                        <button type="button" className="btn btn-light"><a href="/loginadmin">Admin Login</a></button>
+                    </li>
                 </ul>
             </div>
         </nav>
