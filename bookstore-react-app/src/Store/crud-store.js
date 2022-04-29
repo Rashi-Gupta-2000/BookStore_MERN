@@ -12,6 +12,7 @@ const initialState = {
     usergender: "Male",
     books:{},
     wishlist:[],
+    user_name:"",
     title: "",
     author: "",
     category: "",
@@ -49,6 +50,11 @@ if (action.type === "wishlist")
     return {
         ...state,
         wishlist: action.value,
+    };
+if (action.type === "user_name")
+    return {
+        ...state,
+        user_name: action.value,
     };
 if (action.type === "fullname")
     return {

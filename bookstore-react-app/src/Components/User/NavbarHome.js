@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import UserService from "../../Services/UserService";
+import "./NavbarHome.css"
 
 const NavbarHome = () => {
     const { email, password, isLogged } = useSelector((state) => state);
@@ -34,22 +35,12 @@ const NavbarHome = () => {
     //     });
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-
+        // <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-custom">
             <div className="container-fluid">
-                <Link to="/home">Home Page</Link>
-                <ul className="navbar-nav mr-auto">
-                    <button type="button" className="btn btn-light"><a href="/wishlist">Wishlist</a> </button>
-                    {/* <li className="navbar-item">
-                        <Link to="/wishlist/:id" className="nav-link"> Wishlist</Link>
-                    </li> */}
-                    <button type="button" className="btn btn-light" onClick={logoutHandler}>Logout</button>
-                    {/* <button type="button" className="btn btn-light"><a href="/">Logout</a> </button> */}
-                    {/* <li className="navbar-item">
-                        <Link to={`/edit/${params}`} className="nav-link"> Logout</Link>
-                    </li> */}
-
-                </ul>
+                <Link to="/home" className="link">Home Page</Link>
+                <button type="button" className="btn btn-light"><a href="/wishlist">Wishlist</a> </button>
+                <button type="button" className="btn btn-light" onClick={logoutHandler}>Logout</button>
         </div>
 </nav>
     )

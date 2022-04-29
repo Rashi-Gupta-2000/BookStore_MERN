@@ -1,5 +1,5 @@
 import BookService from "../../Services/BookService"
-// import "./Content.css"
+import "./Content.css"
 import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -86,12 +86,12 @@ const Content = () => {
     return(
         <div>
             <NavbarHome/>
-            <div className="container m-2">
-            <Card style={{width:'25rem'}}>
-                             <Card.Img variant="top" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg" />
-                             <Card.Body style={{height:'30rem'}}>
-                                 <Card.Title>{books.title}</Card.Title>
-                                 <Card.Text>
+            <br/><br/>
+            <div className="container content">
+            <Card style={{width:'70rem'}} className="content-card">
+                             <Card.Body>
+                                 <Card.Title className="title">{books.title}</Card.Title>
+                                 <Card.Text className="author">
                                  {books.author}
                                  </Card.Text>
                                  <Card.Text>

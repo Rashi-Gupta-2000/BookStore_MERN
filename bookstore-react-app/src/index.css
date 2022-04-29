@@ -21,8 +21,9 @@ body {
   display: flex;
   font-weight: 400;
   font-family: sans-serif;
-  /* background: #12c2e9;  */
-  background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);
+  /* background-color: #001216; 
+   */
+  background: linear-gradient(to right, #16002c 0%, #16002c 100%);
 }
 
 body, html, .App, #root, .outer {

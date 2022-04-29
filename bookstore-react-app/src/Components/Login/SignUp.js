@@ -6,6 +6,7 @@ import { useState } from "react";
 import Navbar from "../Welcome/Navbar";
 import Dropdown from 'react-bootstrap/Dropdown'
 import "./SignUp.css"
+import Card from 'react-bootstrap/Card'
 
 const SignUp = () => {
     const dispatch = useDispatch();
@@ -56,8 +57,10 @@ const SignUp = () => {
     return (
         <div>
             <Navbar/>
+            <br/>
         <div className="container mt-3">
             {/* {isLogged === false ? ( */}
+            <Card style={{width: '50rem',height: '30rem', padding:'3rem'}} className="card-class"> 
                 <form onSubmit={signupHandler}>
                 <div className="mb-3 mt-3">
                     <label htmlFor="user_name">User name</label>
@@ -67,6 +70,7 @@ const SignUp = () => {
                         id="user_name"
                         className="form-control"
                         placeholder="Enter user name"
+                        required
                         onChange={userNameChangeHandler}
                     />
                 </div>
@@ -78,6 +82,7 @@ const SignUp = () => {
                         id="email"
                         className="form-control"
                         placeholder="Enter Email"
+                        required
                         onChange={emailChangeHandler}
                     />
                 </div>
@@ -90,45 +95,24 @@ const SignUp = () => {
                         id="password"
                         className="form-control"
                         placeholder="Enter Password"
+                        required
                         onChange={passwordChangeHandler}
                     />
                 </div>
 
-                {/* <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
-                </div>
-                </div> */}
-
-                {/* <Dropdown>
-                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                    Select Signup Type
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    <Dropdown.Item href="#" placeholder="User">User</Dropdown.Item>
-                    <Dropdown.Item href="#" value="Admin">Admin</Dropdown.Item>
-                </Dropdown.Menu>
-                </Dropdown> */}
-
-                <div className="todo-control">
+                {/* <div className="todo-control">
                     <label htmlFor="type">Select Signup Type: </label>
                     <select onChange={typeChangeHandler} value={typeSignup}>
                         <option value="User">User</option>
                         <option value="Admin">Admin</option>
                     </select>
-                </div>
+                </div> */}
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block"> Sign Up</button>
+                <button type="submit" className="btn btn-info btn-lg btn-block"> Sign Up</button>
 
             </form>
                 {/* ): ("")}  */}
-            
+            </Card>
         </div>
     </div>
     )

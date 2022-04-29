@@ -6,7 +6,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg bg-color_ justify-content-center">
 
             <div className="container-fluid">
-                <Link to="/" className="btn btn-danger text-light justify-content-left">Book Store APP</Link>
+                <Link to="/" className="btn btn-danger justify-content-left">Book Store APP</Link>
                 <ul className="navbar-nav mr-auto">
                     <li className="navbar-item">
                         {/* <Link to="/signup" className="nav-link navbar-toggle text-dark"> SignUp</Link> */}

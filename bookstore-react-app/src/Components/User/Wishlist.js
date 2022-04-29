@@ -3,6 +3,7 @@ import UserService from "../../Services/UserService";
 import { Link ,useNavigate} from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import NavbarHome from "./NavbarHome";
+import "./Wishlist.css"
 const Wishlist = () => {
     // const params="";
     // const [users, setusers] = useState([]);
@@ -49,12 +50,13 @@ const Wishlist = () => {
     // return <h1>THis is list user</h1>
     // const {users,email}=useSelector((state)=>state);
     // console.log(users,email);
-    const deleteUserHandler = (id)=> {
-        console.log(id);
-        UserService.deleteUser(id).then((res)=> {
-            getUserData();
-        });
-    };
+    
+    // const deleteUserHandler = (id)=> {
+    //     console.log(id);
+    //     UserService.deleteUser(id).then((res)=> {
+    //         getUserData();
+    //     });
+    // };
     const deleteWishlistHandler = (wid)=> {
         console.log(wid);
         const id = localStorage.getItem("userid")
@@ -66,11 +68,12 @@ const Wishlist = () => {
     return (
         <div>
             <NavbarHome/>
-        <div className="container">
+            <br/><br/>
+        <div className="container show-book">
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th>Book Title</th>
+                        <th className="space">Book Title</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

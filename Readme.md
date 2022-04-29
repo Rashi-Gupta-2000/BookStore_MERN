@@ -5,7 +5,7 @@ This is an online library mamangement app where users can rent books for a speci
 
 Users registered for this application can
 - browse books from the library
-- filter them based on category, author, publcations etc..
+- filter them based on category, author, etc..
 - Like book
 <!-- - Review a book  -->
 <!-- - Categorize the books according to the arrival time  -->
@@ -52,6 +52,10 @@ Home page Navbar, book listing(card)
 LOGOUT ISSUE SOLVED:
 After signup we do not get a token we generate a token after signin so for signout we will delete the token and generate a new token after every signin.
 
+BACKEND 
+bookservice --> rashi & akshi
+userservice --> riya & latika
+
 FRONTEND ==> REACT
 Components 
     - Welcome      ----> Latika
@@ -76,10 +80,15 @@ home(refresh book)
 jwt malformed
 
 DAY#3 --> 29 April 
-Add css and boostrap (make it presentable)
-Complete the add to wishlist functionality
+Add css and boostrap (make it presentable)  --> akshi & rashi
+Complete the add to wishlist functionality  --> akshi & rashi --> done
 Logout service  --> done
 admin Interface 
-    - login 
-    - add book  --> latika
-    - delete book --> 
+    - backend
+        - add delele routes --> rahsi & akshi
+    - frontend --> latika & riya
+        - login 
+        - changes on home change
+        - add book  
+        - delete book button 
+Like book --> latika & riya

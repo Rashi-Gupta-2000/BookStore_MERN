@@ -8,6 +8,7 @@ import NavbarHome from "./NavbarHome";
 import NavbarMDB from "./NavbarMDB"
 //import Card from "./Card/card";
 import BookService from "../../Services/BookService";
+import UserService from "../../Services/UserService";
 const USER_BASE_URL = "http://localhost:4500/book";
 const headers = {
     "Content-Type": "application/json",
@@ -19,7 +20,9 @@ const Home = () => {
     const params = "";
     const [books, setBooks] = useState([]);
     const navigate = useNavigate();
-    
+    const id = localStorage.getItem("id")
+    const user_id = localStorage.getItem("userid")
+    console.log(user_id)
     // const bookserviceobj = new BookService();
     // const { books } = useSelector((state) => state);
     //const books= bookserviceobj.getBook();
@@ -44,7 +47,7 @@ const Home = () => {
     const getBook = () => {
         // e.preventDefault();
         return axios.get(USER_BASE_URL , { headers: headers }).then((res)=>{
-            console.log(res);
+            //console.log(res);
             setBooks(res.data);
         })
         .catch((err)=>{
@@ -52,10 +55,14 @@ const Home = () => {
         });
     }
 
-    // const wishlistHandler = (id) => {
-    //     localStorage.setItem("id",id)
-        
-    // }
+    const wishlistHandler = (id) => {
+        localStorage.setItem("id",id)
+        console.log("In")
+        UserService.addtoWishlist(user_id,id).then((res) => {    
+            console.log(res)
+            navigate("/wishlist")
+        })
+    }
 
     const contentHandler =(id) =>{
         //event.preventDefault();
@@ -70,7 +77,7 @@ const Home = () => {
         })
 
     } 
-    const id = localStorage.getItem("id")
+    
     
     
     
@@ -93,9 +100,8 @@ const Home = () => {
                                  <Card.Text>
                                  {book.summary}
                                  </Card.Text>
-                                 <Button variant="primary" onClick={() => contentHandler(book._id)}>
-                                    Read Me
-                                 </Button>
+                                 <Button variant="primary" onClick={() => contentHandler(book._id)}>Read Me</Button>
+                                 <Button variant="success" onClick={() => wishlistHandler(book._id)}>Add to ReadList</Button>
                              </Card.Body>
                              </Card>
                         // <div className='card'>

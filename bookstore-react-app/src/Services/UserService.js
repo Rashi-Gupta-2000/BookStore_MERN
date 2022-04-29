@@ -48,7 +48,9 @@ class UserService {
         return axios.delete(USER_BASE_URL + "/" + id, { headers: headers });
     }
     //book added to wishlist
-    //addtoWishlist
+    addtoWishlist(userid,bookid){
+        return axios.post(USER_BASE_URL +"/" + userid + "/" + bookid);
+    }
 
     //delete book from wishlist
     deleteWishlist(id,wid) {
