@@ -86,7 +86,17 @@ const SignUp = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary"> Sign Up</button>
+                {/* <div className="dropdown">
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select SignUp Type
+                </button>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item" href="#">User</a>
+                    <a className="dropdown-item" href="#">Admin</a>
+                </div>
+                </div> */}
+
+                <button type="submit" className="btn btn-dark btn-lg btn-block"> Sign Up</button>
 
             </form>
                 {/* ): ("")}  */}

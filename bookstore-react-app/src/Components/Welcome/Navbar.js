@@ -10,13 +10,13 @@ const Navbar = () => {
                 <ul className="navbar-nav mr-auto">
                     <li className="navbar-item">
                         {/* <Link to="/signup" className="nav-link navbar-toggle text-dark"> SignUp</Link> */}
-                        <button type="button" className="btn btn-outline-secondary"><a href="/signup">SignUp</a> </button>
+                        <button type="button" className="btn btn-light"><a href="/signup">SignUp</a> </button>
                     </li>
                     <li className="navbar-item">
                         {/* <Link to="/login" className="nav-link text-light"> SignIn</Link> */}
-                        <button type="button" className="btn btn-outline-secondary"><a href="/login">SignIn</a></button>
+                        <button type="button" className="btn btn-light"><a href="/login">SignIn</a></button>
                     </li>
-
+                    
                 </ul>
             </div>
         </nav>
