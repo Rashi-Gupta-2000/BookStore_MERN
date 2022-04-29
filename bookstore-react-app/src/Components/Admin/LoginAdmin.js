@@ -3,6 +3,8 @@ import AdminService from "../../Services/AdminService";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react"
 import Navbar from "../Welcome/Navbar"
+import Card from 'react-bootstrap/Card'
+
 
 const LoginAdmin = () => {
     const dispatch = useDispatch();
@@ -41,12 +43,15 @@ const LoginAdmin = () => {
     return (
         <div>
             <Navbar />
+            <br/><br/><br/><br/>
+
             <div className="container mt-3">
                 {isLogged === false ? (
                     <div className="alert alert-danger">
                         <strong>Error:</strong> Login Credentials Failed
                     </div>)
                     : ("")}
+                     <Card style={{width: '50rem',height: '20rem', padding:'2rem'}} className="card-class"> 
                 <form onSubmit={loginHandler}>
                     <div className="mb-3 mt-3 form-group">
                         <label htmlFor="email">Email</label>
@@ -72,9 +77,10 @@ const LoginAdmin = () => {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-dark btn-lg btn-block"> Login</button>
-
+                    <button type="submit" className="btn btn-info btn-lg btn-block"> Login</button>
+                    
                 </form>
+                </Card>
             </div>
         </div>
     )

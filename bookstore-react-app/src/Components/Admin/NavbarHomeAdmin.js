@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import UserService from "../../Services/UserService";
+import Button from 'react-bootstrap/Button'
+import './NavbarHomeAdmin.css'
 
-const NavbarHome = () => {
+const NavbarHomeAdmin = () => {
     const { email, password, isLogged } = useSelector((state) => state);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -17,6 +19,11 @@ const NavbarHome = () => {
         //     navigate("/")
         // })
     }
+
+    // const addHandler = () => {
+    //     navigate("/addbook")
+
+    // }
 
     // const loginHandler = (event) => {
     //     event.preventDefault();
@@ -34,26 +41,23 @@ const NavbarHome = () => {
     //     });
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+        <nav className="navbar  navbar-custom">
 
             <div className="container-fluid">
-                <Link to="/home">Home Page</Link>
-                <ul className="navbar-nav mr-auto">
-                    <button type="button" className="btn btn-light"><a href="/wishlist">Wishlist</a> </button>
-                    {/* <li className="navbar-item">
-                        <Link to="/wishlist/:id" className="nav-link"> Wishlist</Link>
-                    </li> */}
+                <Link to="/homeAdmin" className="link">Home Page</Link>
+                
+                    <Button variant="btn btn-light">
+                        <a href="/addbook" >AddBook</a>
+                    </Button>
+                    
                     <button type="button" className="btn btn-light" onClick={logoutHandler}>Logout</button>
-                    {/* <button type="button" className="btn btn-light"><a href="/">Logout</a> </button> */}
-                    {/* <li className="navbar-item">
-                        <Link to={`/edit/${params}`} className="nav-link"> Logout</Link>
-                    </li> */}
+            
 
-                </ul>
+                
             </div>
         </nav>
     )
 }
 
-export default NavbarHome
+export default NavbarHomeAdmin
 

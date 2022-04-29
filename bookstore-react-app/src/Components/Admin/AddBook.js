@@ -2,6 +2,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 // import BookService from '../Services/BookService';
 import AdminService from '../../Services/AdminService';
+import NavbarHomeAdmin from './NavbarHomeAdmin';
+import Card from 'react-bootstrap/Card'
+import './AddBook.css'
 const AddUser = () => {
     const { author, title, content, summary, category } = useSelector((state) => state)
     const dispatch = useDispatch();
@@ -24,8 +27,11 @@ const AddUser = () => {
         })
     }
     return (
-        <div className="container m-2">
+        <div>
+            <NavbarHomeAdmin />
+        <div className="container ">
             <h1> Create New Book</h1>
+            <Card style={{width: '50rem',height: '30rem', padding:'1.5rem'}} className="card-class"> 
             <form onSubmit={submitHandler}>
                 <div className="form-group">
                     <label htmlFor="author">Author</label>
@@ -93,10 +99,13 @@ const AddUser = () => {
 
 
                 <div className='form-group'>
-                    <input type="submit" value="Add Book" className='btn btn-primary' />
+                    <input type="submit" value="Add Book" className='btn btn-info' />
                 </div>
 
             </form>
+            </Card>
+        </div>
+
         </div>
 
     );

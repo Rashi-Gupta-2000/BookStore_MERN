@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import "../User/Home.css"
-import NavbarHome from "../User/NavbarHome";
+import NavbarHomeAdmin from "../Admin/NavbarHomeAdmin";
 // import NavbarMDB from "./NavbarMDB"
 //import Card from "./Card/card";
 import BookService from "../../Services/BookService";
 import AdminService from "../../Services/AdminService"
-const USER_BASE_URL = "http://localhost:4500/book";
+const USER_BASE_URL = "http://localhost:4507/book";
 const headers = {
     "Content-Type": "application/json",
     Authorization: "Token " + localStorage.getItem("token")
@@ -83,10 +83,10 @@ const Home = () => {
         })
 
     }
-    const addHandler = () => {
-        navigate("/addbook")
+    // const addHandler = () => {
+    //     navigate("/addbook")
 
-    }
+    // }
     const id = localStorage.getItem("id")
 
 
@@ -94,10 +94,10 @@ const Home = () => {
 
     return (
         <div className="full">
-            <NavbarHome />
-            <Button variant="primary" onClick={() => addHandler()}>
+            <NavbarHomeAdmin />
+            {/* <Button variant="primary" onClick={() => addHandler()}>
                 AddBook
-            </Button>
+            </Button> */}
             {/* <NavbarMDB/> */}
             <div>
                 <h1>Featured Books</h1>
@@ -113,9 +113,10 @@ const Home = () => {
                                 <Card.Text>
                                     {book.summary}
                                 </Card.Text>
-                                <Button variant="primary" onClick={() => contentHandler(book._id)}>
-                                    Read Me
-                                </Button>
+                                {/* <Button variant="primary"  */}
+                                    {/* onClick={() => contentHandler(book._id)}> */}
+                                    {/* Read Me */}
+                                {/* </Button> */}
                                 <Button variant="danger" onClick={() => deleteHandler(book._id)}>
                                     Delete
                                 </Button>
