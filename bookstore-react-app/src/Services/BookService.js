@@ -13,8 +13,11 @@ class BookService {
     // }
 
     //get content of the book
-    getContent(id){
-        return axios.get(USER_BASE_URL + "/" + id + "/content",{ headers: headers })
+    getContent(id) {
+        return axios.get(USER_BASE_URL + "/" + id + "/content", { headers: headers })
+    }
+    getlikes(id) {
+        return axios.get(USER_BASE_URL + "/likes/" + id, { headers: headers })
     }
 }
 

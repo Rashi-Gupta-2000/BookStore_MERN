@@ -34,12 +34,13 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        const localData = localStorage.getItem("token")
-        console.log(localData)
+        const localData = localStorage.getItem("adminid")
+        console.log("localData=", localData)
         if (localData == null) {
-            navigate("/")
+            alert("You are not Admin")
+            navigate("/home")
         }
-    });
+    }, []);
 
     const getBook = () => {
         // e.preventDefault();

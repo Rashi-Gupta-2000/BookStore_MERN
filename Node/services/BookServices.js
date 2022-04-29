@@ -19,6 +19,7 @@ class BookService {
 
     }
 
+
     // called by home page
     async getBook() {
         return await Book.find({ isDel: false });
@@ -27,6 +28,13 @@ class BookService {
     async getBookById(_id) {
         return await Book.findOne({ $and: [{ isDel: false }, { "_id": _id }] })
 
+    }
+    async incrementLikes(_id) {
+        let result = await Book.findOne({ $and: [{ isDel: false }, { "_id": _id }] })
+        console.log(result)
+        result["likes_count"]++;
+        let likes = result["likes_count"];
+        return await Book.updateOne({ "_id": _id }, { $set: { "likes_count": likes } })
     }
 
     async removeBook(_id) {

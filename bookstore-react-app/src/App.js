@@ -18,13 +18,13 @@ function App() {
     <div>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/loginadmin" element={<LoginAdmin />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/homeAdmin" element={<HomeAdmin />} />
         <Route path="/book/:id/content/" element={<Content />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/' element={<Welcome />} />
+        <Route path="/homeAdmin" element={<HomeAdmin />} />
+        <Route path="/loginadmin" element={<LoginAdmin />} />
         <Route path='/addbook' element={<AddBook />} />
         {/* <Route path="/" element={<Login />} />
         <Route path="/list" element={<ListUser />} />
