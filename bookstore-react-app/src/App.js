@@ -26,10 +26,6 @@ function App() {
         <Route path="/homeAdmin" element={<HomeAdmin />} />
         <Route path="/loginadmin" element={<LoginAdmin />} />
         <Route path='/addbook' element={<AddBook />} />
-        {/* <Route path="/" element={<Login />} />
-        <Route path="/list" element={<ListUser />} />
-        <Route path="/create" element={<AddUser />} />
-        <Route path="/edit/:id" element={<EditUser />} /> */}
       </Routes>
     </div>
   );
