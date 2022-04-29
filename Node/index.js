@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to the Bookstore Project")
 })
 
-app.listen(4501, (e) => {
+app.listen(4500, (e) => {
     console.log("Bookstore app listening on port 4500......")
 
     mongoose.connect("mongodb://localhost/bookstore").then((result) => {

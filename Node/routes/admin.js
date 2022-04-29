@@ -11,11 +11,11 @@ router.post("/add", async (req, res) => {
     res.send(result)
 })
 //adding admin
-router.post("/signup", async (req, res) => {
-    const adminService = new AdminService();
-    const result = await adminService.setAdmin(req.body);
-    res.send(result)
-})
+// router.post("/signup", async (req, res) => {
+//     const adminService = new AdminService();
+//     const result = await adminService.setAdmin(req.body);
+//     res.send(result)
+// })
 
 // sign in page
 router.post("/login", async (req, res) => {
