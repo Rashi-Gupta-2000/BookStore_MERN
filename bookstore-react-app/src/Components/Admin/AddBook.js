@@ -25,11 +25,10 @@ const AddUser = () => {
     }
     return (
         <div className="container m-2">
-            <h1>This is ADD page</h1>
-            <h3> Create New Book</h3>
+            <h1> Create New Book</h1>
             <form onSubmit={submitHandler}>
                 <div className="form-group">
-                    <label htmlFor="author">author</label>
+                    <label htmlFor="author">Author</label>
                     <input
                         type="text"
                         name="author"
@@ -41,7 +40,7 @@ const AddUser = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="title">title</label>
+                    <label htmlFor="title">Title</label>
                     <input
                         type="title"
                         name="title"
@@ -53,7 +52,7 @@ const AddUser = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="category">category</label>
+                    <label htmlFor="category">Category</label>
                     <input
                         type="category"
                         name="category"
@@ -77,7 +76,7 @@ const AddUser = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="content">content</label>
+                    <label htmlFor="content">Content</label>
                     <input
                         type="content"
                         name="content"
