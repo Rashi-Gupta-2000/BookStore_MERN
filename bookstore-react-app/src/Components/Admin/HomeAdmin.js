@@ -103,8 +103,8 @@ const Home = () => {
                 <h1>Featured Books</h1>
                 <div className='item-container card-grid'>
                     {books.map((book) => (
-                        <Card style={{ width: '18rem' }} >
-                            <Card.Img variant="top" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg" />
+                        <Card style={{ width: '18rem', height: '38rem' }} >
+                            <Card.Img variant="top" src={book.img} style={{ height: '18rem', width: '17rem' }} />
                             <Card.Body>
                                 <Card.Title>{book.title}</Card.Title>
                                 <Card.Text>
@@ -114,21 +114,15 @@ const Home = () => {
                                     {book.summary}
                                 </Card.Text>
                                 {/* <Button variant="primary"  */}
-                                    {/* onClick={() => contentHandler(book._id)}> */}
-                                    {/* Read Me */}
+                                {/* onClick={() => contentHandler(book._id)}> */}
+                                {/* Read Me */}
                                 {/* </Button> */}
-                                <Button variant="danger" onClick={() => deleteHandler(book._id)}>
-                                    Delete
-                                </Button>
+                                {/* style="height: 2.5rem,position: 'absolute',bottom: '1px',left: '10rem';" */}
                             </Card.Body>
+                            <Button variant="danger" onClick={() => deleteHandler(book._id)} style={{ height: '2.5rem', width: '5rem', position: 'absolute', bottom: '1px', left: '10rem' }}>
+                                Delete
+                            </Button>
                         </Card>
-                        // <div className='card'>
-                        //     <h3>{book.title}</h3>
-                        //     <h3>{book.author}</h3>
-                        //     <p>{book.summary}</p>
-                        //     <button onClick={() => contentHandler(book._id)}>Read Me</button>
-                        //     {/* <button onClick={() => wishlistHandler(book._id)}>Add to ReadList</button> */}
-                        // </div>
                     ))}
 
                 </div>

@@ -1,0 +1,60 @@
+{
+    "_id" : ObjectId("626d1d806ff20db9ac9abbdd"),
+    "img" : "https://images-na.ssl-images-amazon.com/images/I/81t0Vbtbl2L.jpg",
+    "title" : "Advance Maths",
+    "author" : "HS Watson",
+    "category" : "Ashutosh Pandey",
+    "likes_count" : 0,
+    "summary" : "Bookdescribes Maths for SSC and others competitive exams",
+    "content" : "A full-year course covering selected topics in mathematics from the following areas: 1) logic and sets, 2) number fields, 3) the integers, 4) vectors and matrices, 5) groups, 6) linear equations and inequalities, 7) equations and inequalities of higher degree, 8) exponential and logarithm functions, 9) trigonometric functions, 10) polar coordinates and graphs, 11) analytic geometry, 12) probability, 13) beginning calculus, 14) statistics, 15) history of math.",
+    "isDel" : false,
+    "__v" : 0
+}
+
+{
+    "_id" : ObjectId("626d1cdc6ff20db9ac9abbda"),
+    "img" : "https://images.penguinrandomhouse.com/cover/9780739360385",
+    "title" : "Harry Potter2",
+    "author" : "JK Rowling",
+    "category" : "fiction",
+    "likes_count" : 0,
+    "summary" : "She wrote a seven-volume children's fantasy series, Harry Potter, published from 1997 to 2007. The series has been enormously successful: ",
+    "content" : "he author, vice chairman of Ogilvy, shares why what’s irrational often works better than what’s considered to be rational. Rory explains we take some actions based on a psychological rather than logical level. As marketers, we should appeal to this irrational side of our thinking and try what seems to be counterintuitive or logic-defying.  Also, Rory believes marketers should let their minds wander and think about unusual concepts regarding problems and solutions. While the growth marketing field is largely experimental, Rory takes this idea to a new level, saying that the opposite of a good idea might be another good idea. Thus, we shouldn’t underestimate the power of alchemy – changing how things are viewed, presented, and perceived rather than changing things themselves. – Jakub Kliszczak, marketing specialist, CrazyCall",
+    "isDel" : false,
+    "__v" : 0
+}
+{
+    "_id" : ObjectId("626d1f7e6ff20db9ac9abbe9"),
+    "img" : "https://m.media-amazon.com/images/I/517PJt-WqTL.jpg",
+    "title" : "Death Comes to Call",
+    "author" : "Clare Chase",
+    "category" : "Thriller",
+    "likes_count" : 0,
+    "summary" : "An absolutely unputdownable English cozy mystery novel (A Tara Thorpe Mystery Book 3)",
+    "content" : "'Gripping with so many twists to it, I almost felt giddy… I kept trying to guess who the culprit was… a real page turner.’ It’s All About the Books  When a promising local artist disappears, the victim’s brother begs Detective Tara Thorpe to take the case. It seems there’s no evidence of foul play… he simply disappeared without a trace.  Tara agrees to do some digging… never mind that her unorthodox approach to policing has got a few of her colleagues’ backs up. Amongst them is her former supervisor Detective Patrick Wilkins… he’s had enough of Tara calling the shots and will do anything to knock her down. She must be careful.  At least she has an ally in their boss, Detective Garstin Blake. He’ll always back her hunches. If anything, they work together too well… at least, that’s the rumour around the station these days.  When a body of a young woman is found frozen near the fens, Tara’s evidence suddenly becomes key to solving a high-profile murder. Is their missing artist still a victim… or in fact a clever murderer with a deadly plan?  An unputdownable page-turner that will keep you hooked until the very last page! Can be read as a standalone.  The Tara Thorpe Mystery Series: Book 1 – Murder on the Marshes Book 2 – Death on the River Book 3 – Death Comes to Call Book 4 – Murder in the Fens  Readers are completely gripped by Death Comes to Call…  ‘Well ladies and gents, I absolutely lovedDeath Comes To Call… I have to say that I love the character of Tara Thorpe… I was hooked on this book… simply unputdownable… The author’s writing style certainly made me want to keep reading… In short, I absolutely adored reading Death Comes To Call. I would definitely recommend this author and her books to other readers. I can’t wait to read more from Clare Chase.’ Ginger Book Geek  ‘The writing was perfectly pitched and kept me enthralled from start to finish… a complete corker of a book. It picked me up and shot me straight into the action and I simply hung on and enjoyed the ride. It was an absolute treat.’ Stacy is Reading  ‘Although this can be read has a standalone, do yourself a favour a read all three of them, it is too good a series not to miss… Oh did I mention the twists and turns… it will certainly keep you guessing until the very end. This is one hell of an addictive read, I devoured it in one sitting.’ Baker’s Not So Secret Blog  ‘Where has Tara been all my reading life?!... A really twisty, turning novel with great characters and a plot that has you turning the pages.’ Rachel Read It  ‘The main storyline was gripping with so many twists to it, I almost felt giddy… I kept trying to guess who the culprit was… a real page turner.’ It’s All About the Books  ‘Tara is of course, once again, the star of the show.’ B for Bookreview, 5 stars  ‘I liked this fast-paced and engaging mystery. It's engaging and entertaining and I was hooked since the first pages. The mystery was fascinating and it kept me guessing till the end.’ Scrapping and Playing",
+    "isDel" : false,
+    "__v" : 0
+}
+{
+    "_id" : ObjectId("626d208e6ff20db9ac9abbee"),
+    "img" : "https://i.pinimg.com/originals/bf/5d/4e/bf5d4e9490b91604dbc7ca2804ec4eb9.jpg",
+    "title" : "Five Children on Western Front",
+    "author" : "Kate Saunders",
+    "category" : "Thriller",
+    "likes_count" : 0,
+    "summary" : "An appropriate day to sign off the artwork for this beautiful and heartbreaking sequel, out in October.",
+    "content" : "Like the frayed echoes from a crooked canyon, or the sharded images Like the frayed echoes from a crooked canyon, or the sharded images Like the frayed echoes from a crooked canyon, or the sharded images Like the frayed echoes from a crooked canyon, or the sharded images Like the frayed echoes from a crooked canyon, or the sharded images Like the frayed echoes from a crooked canyon, or the sharded images",
+    "isDel" : false,
+    "__v" : 0
+}
+    "_id" : ObjectId("626d27846ff20db9ac9abc07"),
+    "img" : "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg",
+    "title" : "Harry Potter",
+    "author" : "JK Rowling",
+    "category" : "Fiction",
+    "likes_count" : 0,
+    "summary" : "She wrote a seven-volume children's fantasy series, Harry Potter, published from 1997 to 2007. The series has been enormously successful: ",
+    "content" : "The author, vice chairman of Ogilvy, shares why what’s irrational often works better than what’s considered to be rational. Rory explains we take some actions based on a psychological rather than logical level. As marketers, we should appeal to this irrational side of our thinking and try what seems to be counterintuitive or logic-defying.  Also, Rory believes marketers should let their minds wander and think about unusual concepts regarding problems and solutions. While the growth marketing field is largely experimental, Rory takes this idea to a new level, saying that the opposite of a good idea might be another good idea. Thus, we shouldn’t underestimate the power of alchemy – changing how things are viewed, presented, and perceived rather than changing things themselves. – Jakub Kliszczak, marketing specialist, CrazyCall",
+    "isDel" : false,
+    "__v" : 0
+}

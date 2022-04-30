@@ -55,9 +55,9 @@ const Home = () => {
     }
 
     const wishlistHandler = (id) => {
-        localStorage.setItem("id",id)
+        localStorage.setItem("id", id)
         console.log("In")
-        UserService.addtoWishlist(user_id,id).then((res) => {    
+        UserService.addtoWishlist(user_id, id).then((res) => {
             console.log(res)
             navigate("/wishlist")
         })
@@ -86,44 +86,42 @@ const Home = () => {
             }
         })
 
-    } 
-    
-    
-    
-    
+    }
+
 
     return (
         <div className="full">
             <NavbarHome />
             {/* <NavbarMDB/> */}
-                <div>
-                    <h1>Featured Books</h1>
-                    <div className='item-container card-grid'>
-                        {books.map((book) => (
-                             <Card style={{ width: '20rem' }} >
-                             <Card.Img variant="top" src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7805/9781780545929.jpg" />
-                             <Card.Body>
-                                 <Card.Title>{book.title}</Card.Title>
-                                 <Card.Text>
-                                 {book.author}
-                                 </Card.Text>
-                                 <Card.Text>
-                                 {book.summary}
-                                 </Card.Text>
-                                 <Button variant="primary" onClick={() => contentHandler(book._id)}>Read Me</Button>
-                                 <Button variant="success" onClick={() => wishlistHandler(book._id)}>Add to ReadList</Button>
-                                 <Button variant="warning" onClick={() => likeHandler(book._id)}>
+            <div>
+                <h1>Featured Books</h1>
+                <div className='item-container card-grid'>
+                    {books.map((book) => (
+                        <Card style={{ width: '20rem' }} >
+                            <Card.Img variant="top" src={book.img} style={{ height: '18rem', width: '18rem' }} />
+                            <Card.Body>
+                                <Card.Title>{book.title}</Card.Title>
+                                <Card.Text>
+                                    {book.author}
+                                </Card.Text>
+                                <Card.Text>
+                                    {book.summary}
+                                </Card.Text>
+                            </Card.Body>
+                            <Button variant="primary" style={{ height: '2.5rem', width: '6rem' }} onClick={() => contentHandler(book._id)}>Read Me</Button>
+                            <Button variant="success" style={{ height: '2.3rem', width: '9rem' }} onClick={() => wishlistHandler(book._id)}>Add to ReadList</Button>
+                            <Button variant="warning" style={{ height: '2.3rem', width: '7rem' }} onClick={() => likeHandler(book._id)}>
 
-                                    Like Me: {book.likes_count}
+                                Like Me: {book.likes_count}
 
-                                </Button>
-                             </Card.Body>
-                             </Card>
+                            </Button>
+
+                        </Card>
                     ))}
 
-                 </div>
-             </div>
-         </div>
+                </div>
+            </div>
+        </div>
     )
 }
 

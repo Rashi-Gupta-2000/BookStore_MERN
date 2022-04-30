@@ -10,21 +10,27 @@ const initialState = {
     userpassword: "",
     userphone: "",
     usergender: "Male",
-    books:{},
-    wishlist:[],
-    user_name:"",
+    books: {},
+    wishlist: [],
+    user_name: "",
     title: "",
     author: "",
     category: "",
     likes_count: 0,
     summary: "",
     content: "",
+    img: ""
 };
 const bookReducer = (state = initialState, action) => {
     if (action.type === "email")
         return {
             ...state,
             email: action.value,
+        }
+    if (action.type === "img")
+        return {
+            ...state,
+            img: action.value,
         }
     if (action.type === "password")
         return {
@@ -42,25 +48,25 @@ const bookReducer = (state = initialState, action) => {
             users: action.value,
         };
     if (action.type === "books")
-    return {
-        ...state,
-        books: action.value,
-    };
-if (action.type === "wishlist")
-    return {
-        ...state,
-        wishlist: action.value,
-    };
-if (action.type === "user_name")
-    return {
-        ...state,
-        user_name: action.value,
-    };
-if (action.type === "fullname")
-    return {
-        ...state,
-        fullname: action.value,
-    };
+        return {
+            ...state,
+            books: action.value,
+        };
+    if (action.type === "wishlist")
+        return {
+            ...state,
+            wishlist: action.value,
+        };
+    if (action.type === "user_name")
+        return {
+            ...state,
+            user_name: action.value,
+        };
+    if (action.type === "fullname")
+        return {
+            ...state,
+            fullname: action.value,
+        };
 
     if (action.type === "useremail")
         return {
