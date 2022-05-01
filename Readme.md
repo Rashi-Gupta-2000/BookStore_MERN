@@ -5,8 +5,11 @@ This is an online library mamangement app where users can rent books for a speci
 
 Users registered for this application can
 - browse books from the library
-- filter them based on category, author, etc..
-- Like book
+- Like a book
+- Read the Content of a Book
+- Add to his/her wishlist
+- See the Wishlist
+- Delete from Wishlist
 
 Admin of this application can
 - Add a new book to the lot
