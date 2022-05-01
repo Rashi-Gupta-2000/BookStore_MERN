@@ -1,0 +1,13 @@
+.navbar-custom {
+    background-color: rgb(0, 0, 0);
+}
+
+.link{
+    color: beige;
+    text-decoration: none;
+    margin-left: 2rem;
+}
+
+.link:hover{
+    color: rgb(87, 209, 240);
+}

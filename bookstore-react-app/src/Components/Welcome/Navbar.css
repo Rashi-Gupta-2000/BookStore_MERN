@@ -1,0 +1,9 @@
+button a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+} 
+
+button{
+    margin: 1rem;
+}

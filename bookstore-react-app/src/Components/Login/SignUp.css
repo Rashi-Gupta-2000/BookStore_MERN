@@ -1,0 +1,23 @@
+/* .todo-control select{
+    background-color: white;
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+    margin-left: 1rem;
+} */
+
+label{
+    /* font-weight: bold; */
+    color: black;
+}
+input{
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+.card-class{
+    background: linear-gradient(to right,  #9e768f 50%, #a29bfe 100%);
+}

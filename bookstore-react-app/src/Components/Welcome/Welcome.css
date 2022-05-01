@@ -1,0 +1,39 @@
+*{
+    margin: 0 auto;
+}
+
+.bg {
+    /* background-image: url('https://static01.nyt.com/images/2017/05/11/t-magazine/bookstore-slide-2MCD/bookstore-slide-2MCD-superJumbo.jpg');
+     */
+     background-image: 
+     linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+     url('https://compote.slate.com/images/a92fef3e-c1db-4cbf-93da-dae90c0b9388.jpeg?width=1200&rect=4395x2930&offset=0x0');
+    background-repeat:no-repeat; 
+    background-position:center;
+    background-size: cover;
+    height: 582px; 
+    /* height: 880px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; */
+}
+
+.bg .container_ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    font-size: 5em;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.693);
+}
+
+.bg .containerbtn_ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 5em;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.693);
+}

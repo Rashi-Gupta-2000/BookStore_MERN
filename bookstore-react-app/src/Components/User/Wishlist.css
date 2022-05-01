@@ -1,0 +1,38 @@
+th{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: larger;
+    /* margin-right: 4rem; */
+    width: 80%;
+}
+.user{
+    margin-left: 4rem;
+    color: black;
+}
+
+.space{
+    text-indent: 4rem;
+} 
+
+.show-book{
+   align-items: center;
+}
+
+table{
+    background-color: rgb(86, 171, 177);
+    width: 80%;
+}
+
+.card-style{
+    margin-left: 0rem;
+
+}
+.actions{
+    margin-right: 0rem;
+}
+
+.data-table{
+    color: black;
+    font-family:"Courier New" ;
+
+}
