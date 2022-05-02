@@ -73,8 +73,12 @@ class UserService {
     async deletetowishlist(_id, _wid) {
         const bookService = new BookService();
         const userobj = await User.findOne({ $and: [{ isDel: false }, { "_id": _id }] })
-        console.log(userobj.wishlist[_wid]);
-        return await User.updateOne({}, { $pull: { "wishlist": userobj.wishlist[_wid] } })
+        console.log("in backend UserService.js ,userid:", _id)
+        console.log("in backend UserService.js ,wid:", _wid)
+        console.log("userobject at wid:", userobj.wishlist[_wid]);
+        const result = await User.updateOne({ "_id": _id }, { $pull: { "wishlist": userobj.wishlist[_wid] } })
+        console.log("result after deletion:", result);
+        return result
     }
 
     async getwishlist(_id) {

@@ -33,24 +33,26 @@ router.delete("/:id", auth.required, async (req, res) => {
 })
 
 //add to wishlist
-router.post("/:id/:bookid", async (req,res)=>{
+router.post("/:id/:bookid", async (req, res) => {
     const userService = new UserService();
     const result = await userService.addtowishlist(req.params.id, req.params.bookid);
     res.send(result)
 })
 
 //get wishlist
-router.get("/wishlist/:id",auth.required, async(req,res) =>{
+router.get("/wishlist/:id", auth.required, async (req, res) => {
     const userService = new UserService();
     const result = await userService.getwishlist(req.params.id);
     res.send(result["wishlist"]);
 })
 
 //delete book from wishlist
-router.delete("/wishlist/:id/:wid",auth.required, async(req,res) =>{
+router.delete("/wishlist/:id/:wid", auth.required, async (req, res) => {
     const userService = new UserService();
     const result = await userService.deletetowishlist(req.params.id, req.params.wid);
+    console.log("in user,js result after deleted :", result)
     res.send(result);
 })
+
 
 module.exports = router;

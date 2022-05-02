@@ -13,8 +13,8 @@ class UserService {
     }
 
     //redirect to home page
-    HomeUser(){
-        return axios.post(USER_BASE_URL+"/home",{ headers: headers })
+    HomeUser() {
+        return axios.post(USER_BASE_URL + "/home", { headers: headers })
     }
 
     //getuser
@@ -25,12 +25,12 @@ class UserService {
 
     getUserById(id) {
         //console.log(headers);
-        return axios.get(USER_BASE_URL + "/wishlist/" +id, { headers: headers });
+        return axios.get(USER_BASE_URL + "/wishlist/" + id, { headers: headers });
     }
 
     //post user
     postUser(users) {
-        return axios.post(USER_BASE_URL+"/signup", users, { headers: headers });
+        return axios.post(USER_BASE_URL + "/signup", users, { headers: headers });
     }
 
     //delete user
@@ -38,13 +38,13 @@ class UserService {
         return axios.delete(USER_BASE_URL + "/" + id, { headers: headers });
     }
     //book added to wishlist
-    addtoWishlist(userid,bookid){
-        return axios.post(USER_BASE_URL +"/" + userid + "/" + bookid);
+    addtoWishlist(userid, bookid) {
+        return axios.post(USER_BASE_URL + "/" + userid + "/" + bookid, { headers: headers });
     }
 
     //delete book from wishlist
-    deleteWishlist(id,wid) {
-        return axios.delete(USER_BASE_URL + "/wishlist" + "/" + id+ '/'+wid, { headers: headers });
+    deleteWishlist(id, wid) {
+        return axios.delete(USER_BASE_URL + "/wishlist/" + id + '/' + wid, { headers: headers });
     }
 }
 export default new UserService();

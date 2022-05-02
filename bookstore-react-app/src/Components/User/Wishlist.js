@@ -14,7 +14,7 @@ const Wishlist = () => {
     const getUserData = (id) => {
         UserService.getUserById(id).then((res) => {
             console.log("hello")
-            console.log(res.data);
+            console.log("in getuser data :User Data to be dispatched:", res.data);
             dispatch({ type: "wishlist", value: res.data })
         });
     };
@@ -43,7 +43,7 @@ const Wishlist = () => {
 
     const { wishlist } = useSelector((state) => state);
     // console.log("Wishlist is here:")
-    console.log("wishlist is :", wishlist);
+    console.log("after useselector wishlist is :", wishlist);
 
 
 
@@ -62,8 +62,9 @@ const Wishlist = () => {
         console.log(wid);
         const id = localStorage.getItem("userid")
         UserService.deleteWishlist(id, wid).then((res) => {
+            console.log("response in delete response:", res)
+            console.log("delete wishhandler called")
             getUserData(id);
-            console.log("deletewishhandler called")
         });
     };
     return (
@@ -73,36 +74,36 @@ const Wishlist = () => {
             <div className="container show-book ">
                 <table className="table table-striped ">
                     <thead>
-                        
+
                         <tr>
-                          
-                                 <th className="space"></th>
-                            
-                          
-                                 <th className="author ">Title & Author</th>
-                            
-                        
-                           
-                                <th className="actions">Actions</th>
-                            
+
+                            <th className="space"></th>
+
+
+                            <th className="author ">Title & Author</th>
+
+
+
+                            <th className="actions">Actions</th>
+
                         </tr>
-                       
+
                     </thead>
                     <tbody>
 
 
                         {wishlist.map((wt, i) => (
-                            
-                            <tr  key={wt._id}>
+
+                            <tr key={wt._id}>
                                 <td className="float-left">
-                                    <Card  className="card-style"  style={{ width: '10rem' }} >
+                                    <Card className="card-style" style={{ width: '10rem' }} >
                                         <Card.Img variant="top" src={wt.img} style={{ height: '10rem', width: '10rem' }} />
                                         {/* <Card.Body>
                                             <Card.Title>{wt.title}</Card.Title>
                                             <Card.Text>
                                                 {wt.author}
                                             </Card.Text> */}
-                                            {/* <Card.Text>
+                                        {/* <Card.Text>
                                                 {wt.summary}
                                             </Card.Text>
                                             <Card.Text >
@@ -112,10 +113,10 @@ const Wishlist = () => {
                                         {/* </Card.Body> */}
 
                                     </Card>
-                                
+
                                 </td>
-                                <td className="data-table" >{wt.title } <br/> <br/> {wt.author} </td>
-                                
+                                <td className="data-table" >{wt.title} <br /> <br /> {wt.author} </td>
+
 
                                 <td>
                                     <button type="button" className="btn btn-danger m-1" onClick={() => deleteWishlistHandler(i)}>Delete</button>
