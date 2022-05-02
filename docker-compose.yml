@@ -1,14 +1,14 @@
-version: "3.8"
+version: "3.3"
 
 services:
 
   frontend:
-    build: ./client
+    build: ./bookstore-react-app
     ports:
       - 3000:3000
 
   backend:
-    build: ./server
+    build: ./Node
     ports:
       - 4507:4507
     environment:
