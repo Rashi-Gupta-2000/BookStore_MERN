@@ -41,6 +41,7 @@ const AddUser = () => {
                                 id="author"
                                 className="form-control"
                                 placeholder="Enter author"
+                                required
                                 value={author}
                                 onChange={(e) => dispatch({ type: 'author', value: e.target.value })}
                             />
@@ -53,6 +54,7 @@ const AddUser = () => {
                                 id="img"
                                 className="form-control"
                                 placeholder="Enter img"
+                                required
                                 value={img}
                                 onChange={(e) => dispatch({ type: 'img', value: e.target.value })}
                             />
@@ -65,6 +67,7 @@ const AddUser = () => {
                                 id="title"
                                 className="form-control"
                                 placeholder="Enter title"
+                                required
                                 value={title}
                                 onChange={(e) => dispatch({ type: 'title', value: e.target.value })}
                             />
@@ -75,6 +78,7 @@ const AddUser = () => {
                                 type="category"
                                 name="category"
                                 id="category"
+                                required
                                 className="form-control"
                                 placeholder="Enter category"
                                 value={category}
@@ -101,6 +105,7 @@ const AddUser = () => {
                                 id="content"
                                 className="form-control"
                                 placeholder="Enter content"
+                                required
                                 value={content}
                                 onChange={(e) => dispatch({ type: 'content', value: e.target.value })}
                             />

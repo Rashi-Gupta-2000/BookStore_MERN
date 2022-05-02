@@ -12,3 +12,8 @@
 .link:hover{
     color: rgb(87, 209, 240);
 }
+
+.style{
+    border-radius: 3.5rem;
+    
+}

@@ -11,12 +11,15 @@ import Welcome from './Components/Welcome/Welcome';
 import LoginAdmin from './Components/Admin/LoginAdmin';
 import HomeAdmin from './Components/Admin/HomeAdmin';
 import AddBook from './Components/Admin/AddBook'
+import GetStarted from './Components/Welcome/GetStarted';
+
 function App() {
   const { isLogged } = useSelector((state) => state);
   const localData = localStorage.getItem("token");
   return (
     <div>
       <Routes>
+        <Route path="/book/gethome" element={<GetStarted/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
