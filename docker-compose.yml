@@ -2,24 +2,12 @@ version: "3.3"
 
 services:
 
-  frontend:
-    build: ./bookstore-react-app
-    ports:
-      - 3000:3000
-
   backend:
     build: ./Node
     ports:
       - 4507:4507
-    environment:
-      DB_URL: mongodb://db/0.0.0.0:27017/
 
-  db:
-    image: mongo:4.0-xenial
+  frontend:
+    build: ./bookstore-react-app
     ports:
-      - 27018:27017
-    volumes:
-      - bookstore:/data/db
-
-volumes:
-  bookstore:
+      - 3000:3000
