@@ -17,7 +17,8 @@ const initialState = {
     likes_count: 0,
     summary: "",
     content: "",
-    img: ""
+    img: "",
+    selectedCategory: ""
 };
 const bookReducer = (state = initialState, action) => {
     if (action.type === "email")
@@ -29,6 +30,11 @@ const bookReducer = (state = initialState, action) => {
         return {
             ...state,
             img: action.value,
+        }
+    if (action.type === "selectedCategory")
+        return {
+            ...state,
+            selectedCategory: action.value,
         }
     if (action.type === "password")
         return {
@@ -55,6 +61,7 @@ const bookReducer = (state = initialState, action) => {
             ...state,
             wishlist: action.value,
         };
+
     if (action.type === "user_name")
         return {
             ...state,

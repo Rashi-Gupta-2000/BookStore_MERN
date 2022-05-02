@@ -11,9 +11,11 @@ import Welcome from './Components/Welcome/Welcome';
 import LoginAdmin from './Components/Admin/LoginAdmin';
 import HomeAdmin from './Components/Admin/HomeAdmin';
 import AddBook from './Components/Admin/AddBook'
+import Filter from './Components/Filter/Filter'
 function App() {
   const { isLogged } = useSelector((state) => state);
   const localData = localStorage.getItem("token");
+
   return (
     <div>
       <Routes>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/homeAdmin" element={<HomeAdmin />} />
         <Route path="/loginadmin" element={<LoginAdmin />} />
         <Route path='/addbook' element={<AddBook />} />
+        {/* <Route path='/filter' element={<Filter />} /> */}
       </Routes>
     </div>
   );

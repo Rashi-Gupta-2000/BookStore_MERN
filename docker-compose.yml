@@ -4,10 +4,12 @@ services:
 
   backend:
     build: ./Node
+    image: latika25/bookstore-server
     ports:
       - 4507:4507
 
   frontend:
     build: ./bookstore-react-app
+    image: latika25/bookstore-client
     ports:
       - 3000:3000

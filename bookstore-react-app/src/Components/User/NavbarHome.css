@@ -3,12 +3,12 @@
     /* display: flex; */
 }
 
-.link{
+.link {
     color: beige;
     text-decoration: none;
     margin-left: 2rem;
 }
 
-.link:hover{
+.link:hover {
     color: rgb(87, 209, 240);
 }

@@ -1,15 +1,23 @@
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { useDispatch, useSelector } from "react-redux";
 import "./Home.css"
 import NavbarHome from "./NavbarHome";
-
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import BookService from "../../Services/BookService";
 import UserService from "../../Services/UserService";
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import CardActions from '@mui/material/CardActions';
+import { filteredList } from '../Filter/Filter'
+import Item from "../Filter/Item";
 const USER_BASE_URL = "http://localhost:4507/book";
+
+
 const headers = {
     "Content-Type": "application/json",
     Authorization: "Token " + localStorage.getItem("token")
@@ -17,20 +25,11 @@ const headers = {
 };
 
 const Home = () => {
-    const params = "";
     const [books, setBooks] = useState([]);
     const navigate = useNavigate();
     const id = localStorage.getItem("id")
     const user_id = localStorage.getItem("userid")
     console.log(user_id)
-    // const bookserviceobj = new BookService();
-    // const { books } = useSelector((state) => state);
-    //const books= bookserviceobj.getBook();
-    //console.log(books)
-
-    // const id = localStorage.getItem("id"); // current user id
-
-
     useEffect(() => {
         getBook();
     }, []);
@@ -87,37 +86,58 @@ const Home = () => {
         })
 
     }
-
-
+    const { selectedCategory } = useSelector((state) => state);
+    function getFilteredList() {
+        // Avoid filter when selectedCategory is null
+        if (!selectedCategory) {
+            return books;
+        }
+        return books.filter((item) => item.category === selectedCategory);
+    }
+    var filteredList = useMemo(getFilteredList, [selectedCategory, books]);
+    console.log("in home selected category is:", selectedCategory)
     return (
         <div>
             <NavbarHome />
-            {/* <NavbarMDB/> */}
             <div>
                 <h1>Featured Books</h1>
+
+                <Card />
                 <div className='item-container card-grid'>
-                    {books.map((book) => (
+                    {filteredList.map((book) => (
                         <Card style={{ width: '18rem' }} key={book._id} >
-                            <Card.Img  variant="top" src={book.img} style={{ height: '18rem', width: '18rem'}} />
+                            <Card.Img variant="top" src={book.img} style={{ height: '18rem', width: '18rem' }} />
                             <Card.Body>
                                 <Card.Title>{book.title}</Card.Title>
+
                                 <Card.Text>
                                     {book.author}
                                 </Card.Text>
+                                <Card.Text>Category: {book.category}</Card.Text>
                                 <Card.Text>
                                     {book.summary}
                                 </Card.Text>
                             </Card.Body>
-                            <Button variant="primary" style={{ height: '2.5rem', width: '6rem' }} onClick={() => contentHandler(book._id)}>Read Me</Button>
-                            <Button variant="success" style={{ height: '2.3rem', width: '9rem' }} onClick={() => wishlistHandler(book._id)}>Add to ReadList</Button>
-                            <Button variant="warning" style={{ height: '2.3rem', width: '7rem' }} onClick={() => likeHandler(book._id)}>
 
-                                Like Me: {book.likes_count}
 
-                            </Button>
+                            <CardActions disableSpacing>
+                                <IconButton aria-label="add to favorites" onClick={() => likeHandler(book._id)} style={{ marginLeft: '0rem' }}>
+                                    <FavoriteIcon />
+                                    <span style={{ fontSize: '1rem' }}>{book.likes_count}</span>
+                                </IconButton>
+                                <IconButton aria-label="readme" onClick={() => contentHandler(book._id)} >
+                                    <MenuBookIcon />
+                                </IconButton>
+                                <IconButton aria-label="add to wishlist" onClick={() => wishlistHandler(book._id)} >
+                                    <ShoppingBasketIcon />
+                                </IconButton>
+
+                            </CardActions>
+
 
                         </Card>
                     ))}
+
 
                 </div>
             </div>
