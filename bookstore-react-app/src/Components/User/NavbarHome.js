@@ -8,6 +8,7 @@ import UserService from "../../Services/UserService";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./NavbarHome.css"
 import axios from "axios"
+import Search from "./Search"
 
 const USER_BASE_URL = "http://localhost:4507/book";
 const headers = {
@@ -19,6 +20,7 @@ const headers = {
 const NavbarHome = () => {
     const { email, password, isLogged } = useSelector((state) => state);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     // const [query, setQuery] = useState("")
     const [books, setBooks] = useState([]);
@@ -28,49 +30,51 @@ const NavbarHome = () => {
     const id = localStorage.getItem("id")
     const user_id = localStorage.getItem("userid")
 
-    const getBook = () => {
-        // e.preventDefault();
-        return axios.get(USER_BASE_URL, { headers: headers }).then((res) => {
-            console.log(res);
-            setBooks(res.data);
-            setbookList(res.data);
-        })
-            .catch((err) => {
-                console.log(err);
-            });
-    }
-    useEffect(() => {
-        getBook();
-    }, []);
+    // const getBook = () => {
+    //     // e.preventDefault();
+    //     return axios.get(USER_BASE_URL, { headers: headers }).then((res) => {
+    //         console.log(res);
+    //         setBooks(res.data);
+    //         setbookList(res.data);
+    //     })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // }
+    // useEffect(() => {
+    //     getBook();
+    // }, []);
 
-    useEffect(() => {
-        setbookList(books);
-        console.log("books:", bookList)
-    }, []);
+    // useEffect(() => {
+    //     setbookList(books);
+    //     console.log("books:", bookList)
+    // }, []);
 
-    function getFilteredList(event) {
-        // Avoid filter when selectedCategory is null
-        if (!selectedCategory) {
-            return bookList;
-        }
-        const res = bookList.filter((item) => item.title === selectedCategory) ;
-        console.log(res + "is")
-        if (res == "")
-        {
-            console.log("Books does not exist")
-            return null
-        }
-       return res
-    }
+    // function getFilteredList(event) {
+    //     // Avoid filter when selectedCategory is null
+    //     if (!selectedCategory) {
+    //         return bookList;
+    //     }
+    //     const res = bookList.filter((item) => item.title === selectedCategory) ;
+    //     console.log(res + "is")
+    //     if (res == "")
+    //     {
+    //         console.log("Books does not exist")
+    //         return null
+    //     }
+    //    return res
+    // }
 
-    // Avoid duplicate function calls with useMemo
-    var filteredList = useMemo(getFilteredList, [selectedCategory, bookList]);
-    console.log(filteredList)
+    // // Avoid duplicate function calls with useMemo
+    // var filteredList = useMemo(getFilteredList, [selectedCategory, bookList]);
+    // console.log(filteredList)
 
-    function handleCategoryChange(event) {
-        console.log("handle cat call")
-        setSelectedCategory(event.target.value);
-    }
+    // function handleCategoryChange(event) {
+    //     // console.log("handle cat call")
+    //     // setSelectedCategory(event.target.value);
+    //     dispatch({ type: "selectedCategory", value: event.target.value })
+    //     console.log("in filter selectedCategory is:", selectedCategory)
+    // }
 
     const logoutHandler = (e) => {
         e.preventDefault();
@@ -85,7 +89,7 @@ const NavbarHome = () => {
         <nav className="navbar navbar-custom">
             <div className="container-fluid">
                 <Link to="/home" className="link">Home Page</Link>
-                <Form className="d-flex">
+                {/* <Form className="d-flex">
                     <FormControl
                     type="search"
                     placeholder="Search"
@@ -95,7 +99,8 @@ const NavbarHome = () => {
                     onChange={handleCategoryChange} 
                     />
                     <Button variant="outline-info" className="style" >Search</Button>
-                </Form>
+                </Form> */}
+                <Search/>
                 <button type="button" className="btn btn-light"><a href="/wishlist">Wishlist</a> </button>
                 <button type="button" className="btn btn-light" onClick={logoutHandler}>Logout</button>
         </div>

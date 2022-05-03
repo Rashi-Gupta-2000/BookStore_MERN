@@ -2,66 +2,94 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
-import UserService from "../../Services/UserService";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./NavbarHome.css"
+import { useState,useEffect } from "react";
+import { useMemo } from "react";
+import UserService from "../../Services/UserService";
+import axios from "axios"
 
-const NavbarHome = () => {
+const USER_BASE_URL = "http://localhost:4507/book";
+const headers = {
+    "Content-Type": "application/json",
+    Authorization: "Token " + localStorage.getItem("token")
+
+};
+
+
+const Search = () => {
     const { email, password, isLogged } = useSelector((state) => state);
     const navigate = useNavigate();
     const [query, setQuery] = useState("")
     const dispatch = useDispatch();
-    const logoutHandler = (e) => {
-        e.preventDefault();
-        localStorage.clear();
-        navigate("/")
-        // UserService.logoutUser({}).then((res) => {
-        //     dispatch({type:"logged",value:false})
-        //     navigate("/")
-        // })
+
+    const [books, setBooks] = useState([]);
+    const [bookList, setbookList] = useState([]);
+    const [selectedTitle, setselectedTitle] = useState();
+
+    const id = localStorage.getItem("id")
+    const user_id = localStorage.getItem("userid")
+
+    const getBook = () => {
+        // e.preventDefault();
+        return axios.get(USER_BASE_URL, { headers: headers }).then((res) => {
+            console.log(res);
+            setBooks(res.data);
+            setbookList(res.data);
+        })
+            .catch((err) => {
+                console.log(err);
+            });
     }
-    
-    // const loginHandler = (event) => {
-    //     event.preventDefault();
-    //     UserService.loginUser({ "email": email, "password": password }).then((res) => {
-    //         console.log(res);
-    //         if (res.data !== "") {
-    //             localStorage.setItem("token", res.data.token)
-    //             localStorage.setItem("userid",res.data._id)
-    //             dispatch({ type: "logged", value: true });
-    //             navigate("/home")
-    //         }
-    //         else {
-    //             dispatch({ type: "logged", value: false });
-    //         }
-    //     });
+    useEffect(() => {
+        getBook();
+    }, []);
 
+    useEffect(() => {
+        setbookList(books);
+        console.log("books:", bookList)
+    }, []);
 
+    function getFilteredList(event) {
+        // Avoid filter when selectedTitle is null
+        if (!selectedTitle) {
+            return bookList;
+        }
+        const res = bookList.filter((item) => item.title === selectedTitle) ;
+        console.log(res + "is")
+        if (res == "")
+        {
+            console.log("Books does not exist")
+            return null
+        }
+       return res
+    }
 
+    // Avoid duplicate function calls with useMemo
+    var filteredList = useMemo(getFilteredList, [selectedTitle, bookList]);
+    console.log(filteredList)
+
+    function handleSearch(event) {
+        setselectedTitle(event.target.value);
+        console.log("handle cat call:")
+        // dispatch({ type: "selectedTitle", value: event.target.value })
+        console.log("in filter selectedTitle is:", selectedTitle)
+    }
 
     return (
-        // <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <nav className="navbar navbar-custom">
-            <div className="container-fluid">
-                <Link to="/home" className="link">Home Page</Link>
-                <Form className="d-flex">
-                    <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)} 
-                    />
-                    <Button variant="outline-info" className="style" >Search</Button>
-                </Form>
-                <button type="button" className="btn btn-light"><a href="/wishlist">Wishlist</a> </button>
-                <button type="button" className="btn btn-light" onClick={logoutHandler}>Logout</button>
-        </div>
-</nav>
+        <Form className="d-flex">
+            <FormControl
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+            value={selectedTitle}
+            onChange={handleSearch} 
+            />
+            <Button variant="outline-info" className="style" >Search</Button>
+        </Form>
     )
 }
 
-export default NavbarHome
+export default Search
 
