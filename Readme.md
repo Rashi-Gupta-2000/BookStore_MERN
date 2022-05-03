@@ -9,6 +9,8 @@ Users registered for this application can
 - Read the Content of a Book
 - Add to his/her wishlist
 - See the Wishlist
+- Search By book Name
+- Filter by category
 - Delete from Wishlist
 
 Admin of this application can
