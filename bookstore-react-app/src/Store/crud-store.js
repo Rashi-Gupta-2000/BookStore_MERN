@@ -18,7 +18,8 @@ const initialState = {
     summary: "",
     content: "",
     img: "",
-    selectedCategory: ""
+    selectedCategory: "",
+    search: ""
 };
 const bookReducer = (state = initialState, action) => {
     if (action.type === "email")
@@ -35,6 +36,11 @@ const bookReducer = (state = initialState, action) => {
         return {
             ...state,
             selectedCategory: action.value,
+        }
+    if (action.type === "searchtitle")
+        return {
+            ...state,
+            search: action.value,
         }
     if (action.type === "password")
         return {

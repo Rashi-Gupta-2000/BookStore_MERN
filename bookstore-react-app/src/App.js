@@ -12,6 +12,7 @@ import LoginAdmin from './Components/Admin/LoginAdmin';
 import HomeAdmin from './Components/Admin/HomeAdmin';
 import AddBook from './Components/Admin/AddBook'
 import Filter from './Components/Filter/Filter'
+import GetStarted from './Components/Welcome/GetStarted'
 function App() {
   const { isLogged } = useSelector((state) => state);
   const localData = localStorage.getItem("token");
@@ -19,6 +20,7 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path="/book/gethome" element={<GetStarted />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />

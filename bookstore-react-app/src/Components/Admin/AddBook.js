@@ -43,6 +43,7 @@ const AddUser = () => {
                                 placeholder="Enter author"
                                 value={author}
                                 onChange={(e) => dispatch({ type: 'author', value: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -55,6 +56,7 @@ const AddUser = () => {
                                 placeholder="Enter img"
                                 value={img}
                                 onChange={(e) => dispatch({ type: 'img', value: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -67,6 +69,7 @@ const AddUser = () => {
                                 placeholder="Enter title"
                                 value={title}
                                 onChange={(e) => dispatch({ type: 'title', value: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -79,6 +82,7 @@ const AddUser = () => {
                                 placeholder="Enter category"
                                 value={category}
                                 onChange={(e) => dispatch({ type: 'category', value: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -103,6 +107,7 @@ const AddUser = () => {
                                 placeholder="Enter content"
                                 value={content}
                                 onChange={(e) => dispatch({ type: 'content', value: e.target.value })}
+                                required
                             />
                         </div>
 

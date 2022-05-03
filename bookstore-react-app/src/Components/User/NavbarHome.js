@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import UserService from "../../Services/UserService";
 import Filter from '../Filter/Filter'
+import Search from '../Filter/Search'
 import "./NavbarHome.css"
 
 const NavbarHome = () => {
@@ -40,7 +41,9 @@ const NavbarHome = () => {
         <nav className="navbar navbar-custom">
             <div className="container-fluid">
                 <Link to="/home" className="link">Home Page</Link>
+                <Search />
                 <Filter />
+
                 <button type="button" className="btn btn-light"><a href="/wishlist">Wishlist</a> </button>
                 <button type="button" className="btn btn-light" onClick={logoutHandler}>Logout</button>
 

@@ -3,7 +3,11 @@ const router = express.Router();
 const BookService = require("../services/BookServices");
 const auth = require("./auth");
 
-
+router.get("/gethome", async (req, res) => {
+    const bookService = new BookService();
+    const result = await bookService.getBook();
+    res.send(result);
+})
 router.get("/", auth.required, async (req, res) => {
     const bookService = new BookService();
     const result = await bookService.getBook();

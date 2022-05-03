@@ -36,7 +36,7 @@ const Home = () => {
 
     useEffect(() => {
         const localData = localStorage.getItem("token")
-        console.log(localData)
+        // console.log(localData)
         if (localData == null) {
             navigate("/")
         }
@@ -86,15 +86,36 @@ const Home = () => {
         })
 
     }
-    const { selectedCategory } = useSelector((state) => state);
+    const { selectedCategory, search } = useSelector((state) => state);
+    console.log("in home search:", search)
     function getFilteredList() {
         // Avoid filter when selectedCategory is null
-        if (!selectedCategory) {
+        if (!selectedCategory && !search) {
+            console.log("when both null")
             return books;
         }
-        return books.filter((item) => item.category === selectedCategory);
+        else if (search == "") {
+            console.log("when search null")
+            return books.filter((item) => item.category === selectedCategory);
+        }
+        else {
+            console.log("when search is not null")
+            // string.includes(substring
+            // str.toLowerCase().includes('Stark'.toLowerCase());
+            return books.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()));
+        }
     }
-    var filteredList = useMemo(getFilteredList, [selectedCategory, books]);
+    function compare(a, b) {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.title) {
+            return 1;
+        }
+        return 0;
+    }
+    var filteredList = useMemo(getFilteredList, [selectedCategory, search, books]);
+    filteredList.sort(compare)
     console.log("in home selected category is:", selectedCategory)
     return (
         <div>
@@ -102,7 +123,7 @@ const Home = () => {
             <div>
                 <h1>Featured Books</h1>
 
-                <Card />
+
                 <div className='item-container card-grid'>
                     {filteredList.map((book) => (
                         <Card style={{ width: '18rem' }} key={book._id} >
@@ -122,14 +143,14 @@ const Home = () => {
 
                             <CardActions disableSpacing>
                                 <IconButton aria-label="add to favorites" onClick={() => likeHandler(book._id)} style={{ marginLeft: '0rem' }}>
-                                    <FavoriteIcon />
+                                    <FavoriteIcon className="heart" />
                                     <span style={{ fontSize: '1rem' }}>{book.likes_count}</span>
                                 </IconButton>
                                 <IconButton aria-label="readme" onClick={() => contentHandler(book._id)} >
-                                    <MenuBookIcon />
+                                    <MenuBookIcon className="book" />
                                 </IconButton>
                                 <IconButton aria-label="add to wishlist" onClick={() => wishlistHandler(book._id)} >
-                                    <ShoppingBasketIcon />
+                                    <ShoppingBasketIcon className="bag" />
                                 </IconButton>
 
                             </CardActions>
